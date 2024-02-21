@@ -18,6 +18,6 @@ class Role
         if (auth()->user()->role == $role) {
             return $next($request);
         }
-        return '<h1>404 Error - Not Found!!!</h1>'
+        return '<h1>404 Error - Not Found!!!</h1>';
     }
 }
