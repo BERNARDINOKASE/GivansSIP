@@ -12,8 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->ulid('id')->primary();
+            //untuk nip/nis user
+            $table->string('second_id')->unique();
+            $table->string('full_name');
+            $table->string('phone_number');
+            $table->enum('gender', ['male', 'female']);
+            // role untuk user
+            $table->enum('role', [
+                'guest', 'student', 'admin', 'gd_teacher', 'hr_teacher'
+            ]);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
