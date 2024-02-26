@@ -22,9 +22,6 @@ Route::get('/', function () {
 Route::get('/dashboard/guest', function () {
     return view('content/guest/index');
 });
-Route::get('/dashboard/admin', function () {
-    return view('content/admin/index');
-});
 
 
 Route::get('/dashboard', function () {
