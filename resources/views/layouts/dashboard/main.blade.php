@@ -105,7 +105,8 @@
                     {{-- START SIDEBAR MENU --}}
                     @if(request()->is("dashboard/guest"))
                         @include('layouts.guest.sidebar')
-                    @else
+                    @elseif(request()->is("dashboard/admin"))
+                        @include('layouts.guest.sidebar')
                         
                     @endif
                     <div class="sidebar-menu">
