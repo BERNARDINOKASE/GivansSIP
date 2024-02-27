@@ -110,8 +110,9 @@
                         @include('layouts.guest.sidebar')
                     @elseif(request()->is("dashboard/student"))
                         @include('layouts.student.sidebar')
+                    @elseif (request()->is("dashboard/admin"))
+                        @include('layouts.admin.sidebar')
                     @else
-                    
                     @endif
                    
                     <div class="sidebar-menu">
