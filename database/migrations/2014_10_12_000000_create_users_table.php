@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('second_id')->unique();
-            $table->string('full_name');
-            $table->enum('gender', ['male', 'female']);
+            $table->string('full_name')->required();
+            $table->enum('gender', ['male', 'female'])->required();
             $table->string('phone_number')->nullable();
-            $table->enum('role', ['guest', 'student', 'admin', 'gTeacher', 'hrTeacher'])->default('guest');
+            $table->enum('role', ['guest', 'student', 'admin', 'gTeacher', 'hrTeacher'])->default('guest')->required();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
