@@ -23,6 +23,11 @@ Route::get('/dashboard/guest', function () {
     return view('content/guest/index');
 });
 
+Route::get('/dashboard/student', function () {
+    return view('content/student/index');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
