@@ -26,6 +26,11 @@ Route::get('/dashboard/admin', function () {
     return view('content/admin/index');
 });
 
+Route::get('/dashboard/student', function () {
+    return view('content/student/index');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
