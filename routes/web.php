@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,17 +20,21 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-
 Route::get('/dashboard/guest', function () {
     return view('content/guest/index');
-});
-Route::get('/dashboard/admin', function () {
-    return view('content/admin/index');
 });
 
 Route::get('/dashboard/student', function () {
     return view('content/student/index');
 });
+
+// Authentication routes
+
+Route::get('/login', [AuthenticateController::class, 'login']);
+Route::post('/login', [AuthenticateController::class, 'store']);
+Route::get('/register', [AuthenticateController::class, 'register']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+// Route::post('/logout', [AuthenticateController::class, 'destroy']);
 
 
 
@@ -41,5 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Admin Routes 
+// Route::middleware('role:admin')->group(function () {
+//     return view('content.admin.index');
+// })->name('admin.index');
 
 require __DIR__ . '/auth.php';

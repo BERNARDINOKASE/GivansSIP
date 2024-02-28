@@ -106,17 +106,15 @@
                         </div>
                     </div>
                     {{-- START SIDEBAR MENU --}}
-                    @if(request()->is("dashboard/guest"))
-                        @include('layouts.guest.sidebar')
-                    @elseif(request()->is("dashboard/student"))
-                        @include('layouts.student.sidebar')
-                    @elseif (request()->is("dashboard/admin"))
-                        @include('layouts.admin.sidebar')
-                    @else
-                    @endif
-                   
                     <div class="sidebar-menu">
-                    
+                        @if(auth()->user()->role == 'guest')
+                            @include('layouts.guest.sidebar')
+                        @elseif(auth()->user()->role == 'student')
+                            @include('layouts.student.sidebar')
+                        @elseif (auth()->user()->role == 'admin')
+                            @include('layouts.admin.sidebar')
+                        @else
+                        @endif
                     </div>
                     {{-- END SIDEBAR MENU --}}
                 </div>
