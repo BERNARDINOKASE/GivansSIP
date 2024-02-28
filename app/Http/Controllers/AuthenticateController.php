@@ -45,7 +45,7 @@ class AuthenticateController extends Controller
                 return view('content.student.index');
             }
             if (Auth::user()->role == 'admin') {
-                return to_route('admin.index');
+                return view('content.admin.index');
             }
         } else {
             return to_route('login')->withErrors('Username atau password anda salah');
@@ -60,11 +60,6 @@ class AuthenticateController extends Controller
 
         $request->session()->regenerateToken();
 
-        $notification = array(
-            'message' => 'Logout Berhasil',
-            'alert-type' => 'success'
-        );
-
-        return redirect('/')->with($notification);
+        return redirect('/');
     }
 }
