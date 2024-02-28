@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
             'gender.required' => 'Jenis kelamin wajib diisi',
             'phone_number.max' => 'No hp anda sudah lebih dari 13 angka',
             'phone_number.min' => 'No hp anda kurang dari 10 angka',
+            'role.required' => 'Peran wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.lowercase' => 'Email hanya menggunakan huruf kecil',
             'email.unique' => 'Email anda sudah terdaftar',

@@ -1,7 +1,7 @@
 @extends('layouts.homepage.main')
 @section('title','Masuk ke akun')
 @section('content')
-<section class="login-form position-relative">
+<section class="login-form position-static">
     <div class="container">
         <div class="login-area">
             <div class="row">
