@@ -57,4 +57,13 @@ Route::middleware('auth')->group(function () {
 //     return view('content.admin.index');
 // })->name('admin.index');
 
+//Offenses Routes
+Route::get('/content/admin/offenses/index', function () {
+    return view('content/admin/offenses/index');
+});
+Route::get('/content/admin/offenses/adding', function () {
+    return view('content/admin/offenses/adding');
+    //return "testing";
+});
+
 require __DIR__ . '/auth.php';

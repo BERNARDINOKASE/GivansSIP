@@ -2,7 +2,7 @@
     <li class="sidebar-title">Menu</li>
 
     <li class="sidebar-item">
-        <a href="index.html" class="sidebar-link">
+        <a href="#" class="sidebar-link">
         <i class="bi bi-house-door-fill"></i>
         <span>Beranda</span>
         </a>
@@ -16,7 +16,7 @@
 
         <ul class="submenu">
         <li class="submenu-item">
-            <a href="component-accordion.html" class="submenu-link"
+            <a href="content/admin/offenses/index" class="submenu-link"
             >Data Kasus</a
             >
         </li>
