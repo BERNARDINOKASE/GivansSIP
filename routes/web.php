@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Role\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,7 @@ Route::get('/login', [AuthenticateController::class, 'login']);
 Route::post('/login', [AuthenticateController::class, 'store']);
 Route::get('/register', [AuthenticateController::class, 'register']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
-// Route::post('/logout', [AuthenticateController::class, 'destroy']);
+Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
 
 
 
@@ -49,8 +50,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // Admin Routes 
-// Route::middleware('role:admin')->group(function () {
-//     return view('content.admin.index');
-// })->name('admin.index');
+Route::middleware('role:admin')->group(function () {
+    Route::get('dashboard/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 require __DIR__ . '/auth.php';
