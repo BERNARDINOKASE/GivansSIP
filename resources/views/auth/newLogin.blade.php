@@ -18,7 +18,7 @@
                             Email atau password salah
                             @endif
                         </div>
-                        <form method="POST" action="{{url('/login')}}">
+                        <form method="POST" action="{{route('user.login')}}">
                             @csrf
                             <div class="mb-2">
                                 <label for="email">Email</label>
@@ -32,7 +32,7 @@
                             <div class="login-footer">
                                 <button type="submit" class="btn btn-primary w-100">Masuk</button>
                                 <div class="text-center m-2">Atau</div>
-                                <a href="{{url('/register')}}" class="btn btn-secondary w-100">Daftar Akun</a>
+                                <a href="{{route('register')}}" class="btn btn-secondary w-100">Daftar Akun</a>
                             </div>
                         </form>
                     </div>
