@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Role\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +35,11 @@ Route::get('/dashboard/student', function () {
 
 // Authentication routes
 
-Route::get('/login', [AuthenticateController::class, 'login']);
-Route::post('/login', [AuthenticateController::class, 'store']);
-Route::get('/register', [AuthenticateController::class, 'register']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
-// Route::post('/logout', [AuthenticateController::class, 'destroy']);
+Route::get('/login', [AuthenticateController::class, 'login'])->name('login');
+Route::post('/login', [AuthenticateController::class, 'store'])->name('user.login');
+Route::get('/register', [AuthenticateController::class, 'register'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('user.register');
+Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
 
 
 
@@ -52,9 +53,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Admin Routes 
-// Route::middleware('role:admin')->group(function () {
-//     return view('content.admin.index');
-// })->name('admin.index');
+// Admin Routes 
+Route::middleware('role:admin')->group(function () {
+    Route::get('dashboard/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 require __DIR__ . '/auth.php';
