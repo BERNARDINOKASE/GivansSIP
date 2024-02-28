@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Role\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard/guest', function () {
     return view('content/guest/index');
+});
+
+Route::get('/dashboard/admin', function () {
+    return view('content/admin/index');
 });
 
 Route::get('/dashboard/student', function () {
@@ -49,8 +54,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // Admin Routes 
-// Route::middleware('role:admin')->group(function () {
-//     return view('content.admin.index');
-// })->name('admin.index');
+Route::middleware('role:admin')->group(function () {
+    Route::get('dashboard/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 require __DIR__ . '/auth.php';
