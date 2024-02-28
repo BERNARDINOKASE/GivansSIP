@@ -39,7 +39,7 @@
                             data-wow-duration="1s"
                             data-wow-delay="0.2s"
                         >
-                            <img src="{{asset('assets/')}}/images/brands/uideck.svg" alt="brand" />
+                            <img src="{{asset('homepage/')}}/images/brands/uideck.svg" alt="brand" />
                         </div>
                         <!-- single logo -->
                         <div
@@ -47,7 +47,7 @@
                             data-wow-duration="1.5s"
                             data-wow-delay="0.2s"
                         >
-                            <img src="{{asset('assets/')}}/images/brands/ayroui.svg" alt="brand" />
+                            <img src="{{asset('homepage/')}}/images/brands/ayroui.svg" alt="brand" />
                         </div>
                         <!-- single logo -->
                         <div
@@ -55,7 +55,7 @@
                             data-wow-duration="1.5s"
                             data-wow-delay="0.3s"
                         >
-                            <img src="{{asset('assets/')}}/images/brands/graygrids.svg" alt="brand" />
+                            <img src="{{asset('homepage/')}}/images/brands/graygrids.svg" alt="brand" />
                         </div>
                         <!-- single logo -->
                         <div
@@ -63,7 +63,7 @@
                             data-wow-duration="1.5s"
                             data-wow-delay="0.4s"
                         >
-                            <img src="{{asset('assets/')}}/images/brands/lineicons.svg" alt="brand" />
+                            <img src="{{asset('homepage/')}}/images/brands/lineicons.svg" alt="brand" />
                         </div>
                         <!-- single logo -->
                         <div
@@ -72,7 +72,7 @@
                             data-wow-delay="0.5s"
                         >
                             <img
-                            src="{{asset('assets/')}}/images/brands/ecommerce-html.svg"
+                            src="{{asset('homepage/')}}/images/brands/ecommerce-html.svg"
                             alt="brand"
                             />
                         </div>
@@ -113,12 +113,12 @@
                 <div class="services-icon">
                     <img
                     class="shape"
-                    src="{{asset('assets/')}}/images/services/services-shape.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape.svg"
                     alt="shape"
                     />
                     <img
                     class="shape-1"
-                    src="{{asset('assets/')}}/images/services/services-shape-1.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape-1.svg"
                     alt="shape"
                     />
                     <i class="lni lni-baloon"> </i>
@@ -147,12 +147,12 @@
                 <div class="services-icon">
                     <img
                     class="shape"
-                    src="{{asset('assets/')}}/images/services/services-shape.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape.svg"
                     alt="shape"
                     />
                     <img
                     class="shape-1"
-                    src="{{asset('assets/')}}/images/services/services-shape-2.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape-2.svg"
                     alt="shape"
                     />
                     <i class="lni lni-cog"> </i>
@@ -181,12 +181,12 @@
                 <div class="services-icon">
                     <img
                     class="shape"
-                    src="{{asset('assets/')}}/images/services/services-shape.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape.svg"
                     alt="shape"
                     />
                     <img
                     class="shape-1"
-                    src="{{asset('assets/')}}/images/services/services-shape-3.svg"
+                    src="{{asset('homepage/')}}/images/services/services-shape-3.svg"
                     alt="shape"
                     />
                     <i class="lni lni-bolt-alt"> </i>
@@ -249,7 +249,7 @@
                     data-wow-duration="1s"
                     data-wow-delay="0.5s"
                 >
-                    <img src="{{asset('assets/')}}/images/about/about1.svg" alt="about" />
+                    <img src="{{asset('homepage/')}}/images/about/about1.svg" alt="about" />
                 </div>
                 <!-- about image -->
                 </div>
@@ -258,7 +258,7 @@
             </div>
             <!-- container -->
             <div class="about-shape-1">
-            <img src="{{asset('assets/')}}/images/about/about-shape-1.svg" alt="shape" />
+            <img src="{{asset('homepage/')}}/images/about/about-shape-1.svg" alt="shape" />
             </div>
         </div>
         <!--====== ABOUT PART ENDS ======-->
@@ -266,7 +266,7 @@
         <!--====== ABOUT PART START ======-->
         <div class="about-area pt-70">
             <div class="about-shape-2">
-            <img src="{{asset('assets/')}}/images/about/about-shape-2.svg" alt="shape" />
+            <img src="{{asset('homepage/')}}/images/about/about-shape-2.svg" alt="shape" />
             </div>
             <div class="container">
             <div class="row align-items-center">
@@ -301,7 +301,7 @@
                     data-wow-duration="1s"
                     data-wow-delay="0.5s"
                 >
-                    <img src="{{asset('assets/')}}/images/about/about2.svg" alt="about" />
+                    <img src="{{asset('homepage/')}}/images/about/about2.svg" alt="about" />
                 </div>
                 <!-- about image -->
                 </div>
@@ -347,7 +347,7 @@
                     data-wow-duration="1s"
                     data-wow-delay="0.5s"
                 >
-                    <img src="{{asset('assets/')}}/images/about/about3.svg" alt="about" />
+                    <img src="{{asset('homepage/')}}/images/about/about3.svg" alt="about" />
                 </div>
                 <!-- about image -->
                 </div>
@@ -356,7 +356,7 @@
             </div>
             <!-- container -->
             <div class="about-shape-1">
-            <img src="{{asset('assets/')}}/images/about/about-shape-1.svg" alt="shape" />
+            <img src="{{asset('homepage/')}}/images/about/about-shape-1.svg" alt="shape" />
             </div>
         </div>
         <!--====== ABOUT PART ENDS ======-->
@@ -440,10 +440,10 @@
                 data-wow-duration="1s"
                 data-wow-delay="0.5s"
                 >
-                <img class="dots" src="{{asset('assets/')}}/images/video/dots.svg" alt="dots" />
+                <img class="dots" src="{{asset('homepage/')}}/images/video/dots.svg" alt="dots" />
                 <div class="video-wrapper">
                     <div class="video-image">
-                    <img src="{{asset('assets/')}}/images/video/video.png" alt="video" />
+                    <img src="{{asset('homepage/')}}/images/video/video.png" alt="video" />
                     </div>
                     <div class="video-icon">
                     <a

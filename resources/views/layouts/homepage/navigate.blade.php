@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="">
+        <img src="{{asset('logo/')}}/givans-logo1.svg" alt="Logo" />
         {{-- Logo --}}
-        <h3 class="text-white">SIP - Givans</h3>
+        {{-- <h3 class="text-white">SIP - Givans</h3> --}}
     </a>
     <button class="navbar-toggler"
     type="button"
@@ -40,7 +41,7 @@
             <a href="javascript:void(0)">Blog</a>
         </li>
         <li class="navbar-btn">
-            <a class="main-btn d-block" href="">
+            <a class="main-btn d-block" href="{{url('/login')}}">
                 Login
             </a>
         </li>
