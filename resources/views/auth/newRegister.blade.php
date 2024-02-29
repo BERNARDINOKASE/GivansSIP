@@ -7,30 +7,36 @@
     <div class="container">
         <div class="login-area">
             <div class="row">
-                <div class="login-form card">
-                        <div class="col-lg-12">
-                            <div class="text-center mt-10">
-                                <h3 class="login-title">
-                                    Daftar akun
-                                </h3>
-                            </div>
+                <div class="login-form card position-static">
+                    <div class="col-lg-12">
+                        <div class="text-center mt-10">
+                            <h3 class="login-title">
+                                Daftar akun
+                            </h3>
                         </div>
-                        <div class="text-danger text-center">
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $item)
-                                    {{$item}}
-                                @endforeach
-                            @endif
-                        </div>
-                        <form method="POST" action="{{route('user.register')}}">
-                            @csrf
+                    </div>
+                    <div class="text-danger text-center">
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $item)
+                                {{-- {{$item}} --}}
+                            @endforeach
+                        @endif
+                    </div>
+                    <form method="POST" action="{{route('user.register')}}">
+                        @csrf
                             <div class="mb-2">
                                 <label for="nis/nip">NIS/NIP</label>
                                 <input type="number" name="second_id" placeholder="NIS/NIP anda"/>
+                                @if ($errors->has('second_id'))
+                                    <span class="text-danger">{{$errors->first('second_id')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
                                 <label for="name">Nama</label>
                                 <input type="text" name="full_name" placeholder="Nama anda"/>
+                                @if ($errors->has('full_name'))
+                                    <span class="text-danger">{{$errors->first('full_name')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
                                 <label for="gender">Jenis Kelamin</label>
@@ -39,22 +45,34 @@
                                     <option value="male">Pria</option>
                                     <option value="female">Wanita</option>
                                 </select>
+                                @if ($errors->has('gender'))
+                                    <span class="text-danger">{{$errors->first('gender')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
                                 <label for="phone_number">No Hp</label>
                                 <input type="number" name="phone_number" placeholder="No hp anda"/>
+                                @if ($errors->has('phone_number'))
+                                    <span class="text-danger">{{$errors->first('phone_number')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
-                                <label for="gender">Peran</label>
+                                <label for="role">Peran</label>
                                 <select class="form-select form-select" name="role">
                                     <option selected value="">--Peran--</option>
                                     <option value="student">Siswa</option>
                                     <option value="guest">Tamu</option>
                                 </select>
+                                @if ($errors->has('role'))
+                                    <span class="text-danger">{{$errors->first('role')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
                                 <label for="email">Alamat Email</label>
                                 <input type="text" name="email" placeholder="Alamat email anda"/>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{$errors->first('email')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
                                 <label for="password">Password</label>
