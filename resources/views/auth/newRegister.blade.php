@@ -3,7 +3,7 @@
 @section('title', 'Daftar akun')
 
 @section('content')
-<section class="login-form">
+<section class="login-form position-static">
     <div class="container">
         <div class="login-area">
             <div class="row">
@@ -14,13 +14,6 @@
                                 Daftar akun
                             </h3>
                         </div>
-                    </div>
-                    <div class="text-danger text-center">
-                        @if ($errors->any())
-                            @foreach ($errors->all() as $item)
-                                {{-- {{$item}} --}}
-                            @endforeach
-                        @endif
                     </div>
                     <form method="POST" action="{{route('user.register')}}">
                         @csrf
