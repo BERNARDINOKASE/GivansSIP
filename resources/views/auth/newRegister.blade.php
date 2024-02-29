@@ -7,16 +7,16 @@
     <div class="container">
         <div class="login-area">
             <div class="row">
-                <div class="login-form card">
-                        <div class="col-lg-12">
-                            <div class="text-center mt-10">
-                                <h3 class="login-title">
-                                    Daftar akun
-                                </h3>
-                            </div>
+                <div class="login-form card position-static">
+                    <div class="col-lg-12">
+                        <div class="text-center mt-10">
+                            <h3 class="login-title">
+                                Daftar akun
+                            </h3>
                         </div>
-                        <form method="POST" action="{{route('user.register')}}">
-                            @csrf
+                    </div>
+                    <form method="POST" action="{{route('user.register')}}">
+                        @csrf
                             <div class="mb-2">
                                 <label for="nis/nip">NIS/NIP</label>
                                 <input type="number" name="second_id" placeholder="NIS/NIP anda"/>
@@ -45,9 +45,12 @@
                             <div class="mb-2">
                                 <label for="phone_number">No Hp</label>
                                 <input type="number" name="phone_number" placeholder="No hp anda"/>
+                                @if ($errors->has('phone_number'))
+                                    <span class="text-danger">{{$errors->first('phone_number')}}</span>
+                                @endif
                             </div>
                             <div class="mb-2">
-                                <label for="gender">Peran</label>
+                                <label for="role">Peran</label>
                                 <select class="form-select form-select" name="role">
                                     <option selected value="">--Peran--</option>
                                     <option value="student">Siswa</option>
