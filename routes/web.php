@@ -35,11 +35,11 @@ Route::get('/dashboard/student', function () {
 
 // Authentication routes
 
-Route::get('/login', [AuthenticateController::class, 'login']);
-Route::post('/login', [AuthenticateController::class, 'store']);
-Route::get('/register', [AuthenticateController::class, 'register']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
-Route::get('/logout', [AuthenticateController::class, 'destroy']);
+Route::get('/login', [AuthenticateController::class, 'login'])->name('login');
+Route::post('/login', [AuthenticateController::class, 'store'])->name('user.login');
+Route::get('/register', [AuthenticateController::class, 'register'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('user.register');
+Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
 
 
 
