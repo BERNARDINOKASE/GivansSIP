@@ -41,7 +41,7 @@
             <a href="javascript:void(0)">Blog</a>
         </li>
         <li class="navbar-btn">
-            <a class="main-btn d-block" href="{{url('/login')}}">
+            <a class="main-btn d-block" href="{{route('login')}}">
                 Login
             </a>
         </li>

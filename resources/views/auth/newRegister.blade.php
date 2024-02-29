@@ -3,7 +3,7 @@
 @section('title', 'Daftar akun')
 
 @section('content')
-<section class="login-form">
+<section class="login-form position-static">
     <div class="container">
         <div class="login-area">
             <div class="row">
@@ -15,7 +15,7 @@
                                 </h3>
                             </div>
                         </div>
-                        <form method="POST" action="{{url('/register')}}">
+                        <form method="POST" action="{{route('user.register')}}">
                             @csrf
                             <div class="mb-2">
                                 <label for="nis/nip">NIS/NIP</label>
@@ -75,7 +75,7 @@
                             <div class="login-footer">
                                 <button type="submit" class="btn btn-primary w-100 mb-2">Daftar</button>
                                 {{-- <div class="text-center m-2">Atau</div> --}}
-                                <a href="" class="tex-primary text-end w-100">Sudah Punya Akun ?</a>
+                                <a href="{{route('login')}}" class="tex-primary text-end w-100">Sudah Punya Akun ?</a>
                             </div>
                         </form>
                     </div>

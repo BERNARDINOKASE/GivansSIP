@@ -124,14 +124,7 @@
                     @include('layouts.dashboard.header')
                 {{-- END HEADER --}}
                 <div id="main-content">
-                    @if(request()->is("student/pengaduan"))
-                        @yield('content_student')
-                    @elseif(request()->is("dashboard/guest"))    
-                         @yield('content')
-                    @elseif(request()->is("dashboard/student"))
-                        @yield('content_pengaduan')
-
-                    @endif
+                     @yield('content')
                 </div>
 
                 {{-- START FOOTER --}}

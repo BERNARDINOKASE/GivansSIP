@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{asset('dashboard/')}}/extensions/quill/quill.snow.css">
     <link rel="stylesheet" href="{{asset('dashboard/')}}/extensions/quill/quill.bubble.css">
 @endpush
-@section('content_pengaduan')
+@section('content')
 <h2>Form Laporan Pengaduan Siswa</h2>
  <!-- Basic Horizontal form layout section start -->
  <section id="basic-horizontal-layouts">

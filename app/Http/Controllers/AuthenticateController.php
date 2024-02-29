@@ -48,7 +48,7 @@ class AuthenticateController extends Controller
                 return view('content.admin.index');
             }
         } else {
-            return to_route('login')->withErrors('Username atau password anda salah');
+            return redirect()->back();
         }
     }
 
