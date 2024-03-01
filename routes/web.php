@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
 
@@ -41,7 +42,14 @@ Route::get('/register', [AuthenticateController::class, 'register'])->name('regi
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('user.register');
 Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
 
+// Admin routes
 
+Route::controller(AdminController::class)
+    ->middleware(['auth', 'role:admin'])
+    ->prefix('/dashboard/admin')
+    ->group(function () {
+        Route::get('/', 'index')->name('admin.index');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -53,5 +61,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
+// Reports Routes
+Route::controller(ReportController::class)
+    ->middleware(['auth'])
+    ->prefix('report')
+    ->group(function () {
+        Route::get('/', 'index')->name('report.index');
+        Route::post('/', 'store')->name('report.store');
+    });
 
 require __DIR__ . '/auth.php';
