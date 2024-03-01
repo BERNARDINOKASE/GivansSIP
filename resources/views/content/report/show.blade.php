@@ -38,7 +38,7 @@
                                 <label class="col-form-label" for="id">Id</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="id" class="form-control" name="id" value="{{$report->id}}" disabled>
+                                <input type="text" id="id" class="form-control" name="id" value="{{$report->id}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -46,7 +46,7 @@
                                 <label class="col-form-label" for="offense_id">Kategori Laporan</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="offense_id" class="form-control" name="offense_id" value="{{$report->offense->name}}" disabled>
+                                <input type="text" id="offense_id" class="form-control" name="offense_id" value="{{$report->offense->name}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -54,7 +54,7 @@
                                 <label class="col-form-label" for="date_report">Tanggal Laporan</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="date_report" class="form-control" name="date_report" value="{{$report->date_report}}" disabled>
+                                <input type="text" id="date_report" class="form-control" name="date_report" value="{{$report->date_report}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -62,7 +62,7 @@
                                 <label class="col-form-label" for="location_of_incident">Lokasi Kejadian</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->location_of_incident}}" disabled>
+                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->location_of_incident}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -70,7 +70,7 @@
                                 <label class="col-form-label" for="chronology">Kronologi Kejadian</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <textarea type="text" id="chronology" class="form-control" name="chronology" disabled>{{$report->chronology}}</textarea>
+                                <textarea type="text" id="chronology" class="form-control" name="chronology" readonly>{{$report->chronology}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -78,7 +78,7 @@
                                 <label class="col-form-label" for="solutions">Solusi</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->solutions}}" disabled>
+                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->solutions}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
@@ -86,7 +86,7 @@
                                 <label class="col-form-label" for="notes">Catatan</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="notes" class="form-control" name="notes" value="{{$report->notes}}" disabled>
+                                <input type="text" id="notes" class="form-control" name="notes" value="{{$report->notes}}" readonly>
                             </div>
                         </div>
                     </div>
