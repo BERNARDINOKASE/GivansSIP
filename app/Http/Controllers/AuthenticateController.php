@@ -42,10 +42,10 @@ class AuthenticateController extends Controller
                 return view('content.guest.index');
             }
             if (Auth::user()->role == 'student') {
-                return view('content.student.index');
+                return to_route('student.index');
             }
             if (Auth::user()->role == 'admin') {
-                return view('content.admin.index');
+                return to_route('admin.index');
             }
         } else {
             return redirect()->back();

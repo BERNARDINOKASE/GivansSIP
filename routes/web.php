@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,12 @@ Route::controller(AdminController::class)
     ->group(function () {
         Route::get('/', 'index')->name('admin.index');
     });
+Route::controller(StudentController::class)
+    ->middleware(['auth', 'role:student'])
+    ->prefix('/dashboard/student')
+    ->group(function () {
+        Route::get('/', 'index')->name('student.index');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -70,6 +77,10 @@ Route::controller(ReportController::class)
     ->group(function () {
         Route::get('/', 'index')->name('report.index');
         Route::post('/', 'store')->name('report.store');
+        Route::get('/edit/{id}', 'edit')->name('report.edit');
+        Route::put('/{id}', 'update')->name('report.update');
+        Route::get('/{id}', 'show')->name('report.show');
+        Route::delete('/{id}', 'destroy')->name('report.delete');
     });
 
 require __DIR__ . '/auth.php';

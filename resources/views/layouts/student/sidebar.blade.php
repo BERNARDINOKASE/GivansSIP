@@ -1,8 +1,8 @@
 <ul class="menu">
     <li class="sidebar-title">Menu</li>
 
-    <li class="sidebar-item">
-        <a href="/student/pengaduan" class="sidebar-link">
+    <li class="sidebar-item {{ Request::routeIs('student.index*')?'active':'' }}">
+        <a href="{{route('student.index')}}" class="sidebar-link">
         <i class="bi bi-house-door-fill"></i>
         <span>Beranda</span>
         </a>
@@ -16,8 +16,8 @@
 
         <ul class="submenu">
 
-        <li class="submenu-item">
-            <a href="component-accordion.html" class="submenu-link"
+        <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
+            <a href="{{route('report.index')}}" class="submenu-link"
             >Tambah</a
             >
         </li>
