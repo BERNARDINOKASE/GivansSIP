@@ -1,31 +1,27 @@
 <ul class="menu">
     <li class="sidebar-title">Menu</li>
 
-    <li class="sidebar-item">
-        <a href="#" class="sidebar-link">
+    <li class="sidebar-item {{ Request::routeIs('admin.index*')?'active':'' }}">
+        <a href="{{route('admin.index')}}" class="sidebar-link">
         <i class="bi bi-house-door-fill"></i>
         <span>Beranda</span>
         </a>
     </li>
 
     <li class="sidebar-item has-sub">
-        <a href="#" class="sidebar-link">
+        <a href="" class="sidebar-link">
         <i class="bi bi-database"></i>
         <span>Data </span>
         </a>
 
         <ul class="submenu">
-        <li class="submenu-item">
-            <a href="content/admin/offenses/index" class="submenu-link"
-            >Data Kasus</a
-            >
-        </li>
+            <li class="submenu-item">
+                <a href="" class="submenu-link">Data Kasus</a>
+            </li>
 
-        <li class="submenu-item">
-            <a href="component-alert.html" class="submenu-link"
-            >Data Laporan</a
-            >
-        </li>
+            <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
+                <a href="{{route('report.index')}}" class="submenu-link">Data Laporan</a>
+            </li>
         </ul>
     </li>
 
@@ -35,7 +31,7 @@
         <span> Kelas</span>
         </a>
 
-        <ul class="submenu active">
+        <ul class="submenu">
         <li class="submenu-item">
             <a href="layout-default.html" class="submenu-link"
             >Kelas X</a
@@ -54,7 +50,7 @@
         </li>
         </ul>
     </li>
-    <li class="sidebar-item active has-sub">
+    <li class="sidebar-item has-sub">
         <a href="#" class="sidebar-link">
         <i class="bi bi-people-fill"></i>
         <span>Pengguna</span>
