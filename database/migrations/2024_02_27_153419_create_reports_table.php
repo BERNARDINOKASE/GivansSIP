@@ -15,7 +15,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->date('date_report')->required();
             $table->string('location_of_incident')->required();
-            $table->string('chronology', 255)->required();
+            $table->longText('chronology')->required();
             $table->string('evidence')->required();
             $table->string('solutions', 255)->nullable();
             $table->text('notes')->nullable();
