@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClassRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +69,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
+//ClassRoomRoute
+Route::get('/content/classroom/index', [ClassRoomController::class, 'index']);
+Route::post('/content/classroom/index', [ClassRoomController::class, 'store'])->name('classroom.store');
+Route::delete('/{id}', [ClassRoomController::class, 'destroy'])->name('classroom.delete');
+
 
 // Reports Routes
 Route::controller(ReportController::class)
@@ -82,5 +87,6 @@ Route::controller(ReportController::class)
         Route::get('/{id}', 'show')->name('report.show');
         Route::delete('/{id}', 'destroy')->name('report.delete');
     });
+
 
 require __DIR__ . '/auth.php';
