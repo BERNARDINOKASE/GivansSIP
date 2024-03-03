@@ -15,16 +15,16 @@
         </a>
 
         <ul class="submenu">
-
-        <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
-            <a href="{{route('report.index')}}" class="submenu-link"
-            >Tambah</a
+    
+        <li class="submenu-item {{ Request::routeIs('report.create*')?'active':'' }}">
+            <a href="{{route('report.create')}}" class="submenu-link"
+            >Tambah pengaduan</a
             >
         </li>
 
-        <li class="submenu-item">
-            <a href="component-accordion.html" class="submenu-link"
-            >Lacak</a
+        <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
+            <a href="{{route('report.index')}}" class="submenu-link"
+            >Pengaduan saya</a
             >
         </li>
 

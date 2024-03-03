@@ -14,8 +14,15 @@ class ReportController extends Controller
         $report = Report::orderBy('updated_at', 'DESC')->get();
         $offense = Offense::all();
         // dd($report);
-        return view('content.report.index', compact('offense', 'report'));
+        return view('content.report.index', compact('report', 'offense'));
     }
+
+    public function create()
+    {
+        $offense = Offense::all();
+        return view('content.report.create', compact('offense'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +49,7 @@ class ReportController extends Controller
         ];
 
         $data = Report::create($requestReports);
-        return redirect()->back();
+        return to_route('report.index');
     }
     public function edit(string $id)
     {

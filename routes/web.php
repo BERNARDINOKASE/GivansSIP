@@ -76,6 +76,7 @@ Route::controller(ReportController::class)
     ->prefix('report')
     ->group(function () {
         Route::get('/', 'index')->name('report.index');
+        Route::get('/tambah', 'create')->name('report.create');
         Route::post('/', 'store')->name('report.store');
         Route::get('/edit/{id}', 'edit')->name('report.edit');
         Route::put('/{id}', 'update')->name('report.update');
