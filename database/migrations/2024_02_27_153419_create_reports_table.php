@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('evidence')->required();
             $table->string('solutions', 255)->nullable();
             $table->text('notes')->nullable();
-            $table->enum('status', ['proses', 'menunggu', 'selesai'])->required();
+            $table->enum('status', ['menunggu', 'proses', 'selesai'])->required();
             $table->timestamps();
         });
     }
