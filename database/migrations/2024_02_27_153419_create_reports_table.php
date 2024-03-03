@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->date('date_report')->required();
+            $table->date('date_of_incident')->required();
             $table->string('location_of_incident')->required();
             $table->longText('chronology')->required();
             $table->string('evidence')->required();

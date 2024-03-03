@@ -20,7 +20,7 @@ class ReportController extends Controller
     {
         $request->validate([
             'offense_id' => ['required', 'exists:offenses,id'],
-            'date_report' => ['required', 'date'],
+            'date_of_incident' => ['required', 'date'],
             'location_of_incident' => ['required', 'string'],
             'chronology' => ['required', 'string'],
             'evidence' => ['required'],
@@ -32,7 +32,7 @@ class ReportController extends Controller
         $requestReports = [
             'users_id' => Auth::id(),
             'offense_id' => $request->offense_id,
-            'date_report' => $request->date_report,
+            'date_of_incident' => $request->date_of_incident,
             'location_of_incident' => $request->location_of_incident,
             'chronology' => $request->chronology,
             'evidence' => $request->evidence,
@@ -56,7 +56,7 @@ class ReportController extends Controller
     {
         $request->validate([
             'offense_id' => ['required', 'exists:offenses,id'],
-            'date_report' => ['required', 'date'],
+            'date_of_incident' => ['required', 'date'],
             'location_of_incident' => ['required', 'string'],
             'chronology' => ['required', 'string'],
             'evidence' => ['required'],
@@ -67,7 +67,7 @@ class ReportController extends Controller
         $requestReports = [
             'users_id' => Auth::id(),
             'offense_id' => $request->offense_id,
-            'date_report' => $request->date_report,
+            'date_of_incident' => $request->date_of_incident,
             'location_of_incident' => $request->location_of_incident,
             'chronology' => $request->chronology,
             'evidence' => $request->evidence,

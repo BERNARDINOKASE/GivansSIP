@@ -16,7 +16,7 @@ class Report extends Model
     protected $fillable = [
         'users_id',
         'offense_id',
-        'date_report',
+        'date_of_incident',
         'location_of_incident',
         'chronology',
         'evidence',
