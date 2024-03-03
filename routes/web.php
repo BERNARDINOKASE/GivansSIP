@@ -67,6 +67,8 @@ Route::controller(GuideTeacherController::class)
     ->prefix('/dashboard/guide-teacher')
     ->group(function () {
         Route::get('/', 'index')->name('gTeacher.index');
+        Route::get('/reports-waiting', 'reportWaiting')->name('gTeacher.reportsWaiting');
+        Route::get('/reports-on-progres', 'reportOnProgress')->name('gTeacher.reportOnProgress');
     });
 
 Route::get('/dashboard', function () {
