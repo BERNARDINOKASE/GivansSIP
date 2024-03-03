@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-md btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#backdrop">Tambah Laporan</button>
+    {{-- <button class="btn btn-md btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#backdrop">Tambah Laporan</button> --}}
     <div class="row">
         <div class="col-md-12 col-12">
             <div class="card">

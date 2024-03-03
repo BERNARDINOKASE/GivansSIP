@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Role\GuideTeacherController;
+use App\Http\Controllers\Role\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,11 +52,23 @@ Route::controller(AdminController::class)
     ->group(function () {
         Route::get('/', 'index')->name('admin.index');
     });
+
+// Student routes
 Route::controller(StudentController::class)
     ->middleware(['auth', 'role:student'])
     ->prefix('/dashboard/student')
     ->group(function () {
         Route::get('/', 'index')->name('student.index');
+    });
+
+// GTeacher routes
+Route::controller(GuideTeacherController::class)
+    ->middleware(['auth'])
+    ->prefix('/dashboard/guide-teacher')
+    ->group(function () {
+        Route::get('/', 'index')->name('gTeacher.index');
+        Route::get('/reports-waiting', 'reportWaiting')->name('gTeacher.reportsWaiting');
+        Route::get('/reports-on-progres', 'reportOnProgress')->name('gTeacher.reportOnProgress');
     });
 
 Route::get('/dashboard', function () {
@@ -76,6 +89,7 @@ Route::controller(ReportController::class)
     ->prefix('report')
     ->group(function () {
         Route::get('/', 'index')->name('report.index');
+        Route::get('/tambah', 'create')->name('report.create');
         Route::post('/', 'store')->name('report.store');
         Route::get('/edit/{id}', 'edit')->name('report.edit');
         Route::put('/{id}', 'update')->name('report.update');

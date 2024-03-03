@@ -16,12 +16,12 @@
 
         <ul class="submenu">
     
-            <li class="submenu-item {{ Request::routeIs('report.create*')?'active':'' }}">
-                <a href="{{route('report.create')}}" class="submenu-link">Pengajuan Pengaduan</a>
+            <li class="submenu-item {{ Request::routeIs('gTeacher.reportsWaiting*')?'active':'' }}">
+                <a href="{{route('gTeacher.reportsWaiting')}}" class="submenu-link">Pengaduan Belum di Proses</a>
             </li>
 
-            <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
-                <a href="{{route('report.index')}}" class="submenu-link">Daftar Pengaduan</a>
+            <li class="submenu-item {{ Request::routeIs('gTeacher.reportOnProgress*')?'active':'' }}">
+                <a href="{{route('gTeacher.reportOnProgress')}}" class="submenu-link">Pengaduan Dalam Proses</a>
             </li>
         </ul>
     </li>

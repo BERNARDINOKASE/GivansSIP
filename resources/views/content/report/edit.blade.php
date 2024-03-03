@@ -37,8 +37,8 @@
                         <div class="mb-2">
                             <div class="col-12">
                                 <div class="">
-                                    <label for="date_report">Tanggal</label>
-                                    <input class="form-control" type="date" name="date_report" value="{{$report->date_report}}">
+                                    <label for="date_of_incident">Tanggal</label>
+                                    <input class="form-control" type="date" name="date_of_incident" value="{{$report->date_of_incident}}">
                                 </div>
                                 <div class="">
                                     <label for="offense_id">Kategori Kejadian</label>
