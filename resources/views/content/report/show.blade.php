@@ -51,10 +51,10 @@
                         </div>
                         <div class="form-group row align-items-center">
                             <div class="col-lg-2 col-3">
-                                <label class="col-form-label" for="date_report">Tanggal Laporan</label>
+                                <label class="col-form-label" for="date_of_incident">Tanggal Laporan</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="date_report" class="form-control" name="date_report" value="{{$report->date_report}}" readonly>
+                                <input type="text" id="date_of_incident" class="form-control" name="date_of_incident" value="{{$report->date_of_incident}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row align-items-center">

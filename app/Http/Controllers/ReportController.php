@@ -32,9 +32,6 @@ class ReportController extends Controller
             'location_of_incident' => ['required', 'string'],
             'chronology' => ['required', 'string'],
             'evidence' => ['required'],
-            'solutions' => ['nullable'],
-            'notes' => ['nullable'],
-            // 'status' => ['nullable'],
         ], [
             'offense_id.required' => 'Kategori pengajuan belum diisi',
             'date_of_incident.required' => 'Tanggal kejadian belum diisi',
@@ -42,7 +39,7 @@ class ReportController extends Controller
             'chronology.required' => 'Kronologi belum diisi',
             'evidence.required' => 'Bukti belum diisi',
             'date_of_incident.date' => 'Bukan bertipe tanggal',
-        'offense_id.exists' => 'Kategori tidak terdaftar di dalam sistem',
+            'offense_id.exists' => 'Kategori tidak terdaftar di dalam sistem',
         ]);
 
         $requestReports = [
@@ -52,9 +49,6 @@ class ReportController extends Controller
             'location_of_incident' => $request->location_of_incident,
             'chronology' => $request->chronology,
             'evidence' => $request->evidence,
-            'solutions' => $request->solutions,
-            'notes' => $request->notes,
-            // 'status' => 'pending'
         ];
 
         $data = Report::create($requestReports);

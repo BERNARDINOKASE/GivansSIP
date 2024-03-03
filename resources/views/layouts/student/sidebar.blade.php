@@ -16,25 +16,13 @@
 
         <ul class="submenu">
     
-        <li class="submenu-item {{ Request::routeIs('report.create*')?'active':'' }}">
-            <a href="{{route('report.create')}}" class="submenu-link"
-            >Tambah pengaduan</a
-            >
-        </li>
+            <li class="submenu-item {{ Request::routeIs('report.create*')?'active':'' }}">
+                <a href="{{route('report.create')}}" class="submenu-link">Pengajuan Pengaduan</a>
+            </li>
 
-        <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
-            <a href="{{route('report.index')}}" class="submenu-link"
-            >Pengaduan saya</a
-            >
-        </li>
-
-        <li class="submenu-item">
-            <a href="component-alert.html" class="submenu-link"
-            >Riwayat</a
-            >
-        </li>
+            <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">
+                <a href="{{route('report.index')}}" class="submenu-link">Daftar Pengaduan</a>
+            </li>
         </ul>
     </li>
-
-    
 </ul>
