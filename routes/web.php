@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Role\GuideTeacherController;
+use App\Http\Controllers\Role\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,11 +52,21 @@ Route::controller(AdminController::class)
     ->group(function () {
         Route::get('/', 'index')->name('admin.index');
     });
+
+// Student routes
 Route::controller(StudentController::class)
     ->middleware(['auth', 'role:student'])
     ->prefix('/dashboard/student')
     ->group(function () {
         Route::get('/', 'index')->name('student.index');
+    });
+
+// GTeacher routes
+Route::controller(GuideTeacherController::class)
+    ->middleware(['auth'])
+    ->prefix('/dashboard/guide-teacher')
+    ->group(function () {
+        Route::get('/', 'index')->name('gTeacher.index');
     });
 
 Route::get('/dashboard', function () {
