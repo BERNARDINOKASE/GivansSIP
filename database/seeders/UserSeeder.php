@@ -13,6 +13,17 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $admin = [
+            [
+                'full_name' => 'Admin 1',
+                'second_id' => '120023121312312',
+                'gender' => 'male',
+                'email' => 'admin1@example.com',
+                'role' => 'admin',
+                'password' => bcrypt('password'),
+            ]
+        ];
+
         $student = [
             [
                 'full_name' => 'Bernard',
@@ -73,6 +84,9 @@ class UserSeeder extends Seeder
             User::create($key);
         }
         foreach ($gTeacher as $key) {
+            User::create($key);
+        }
+        foreach ($admin as $key) {
             User::create($key);
         }
     }

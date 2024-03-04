@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
-use App\Http\Controllers\Role\GuideTeacherController;
+use App\Http\Controllers\Role\headRoomTeacherController;
+use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
 
 /*
@@ -62,7 +63,7 @@ Route::controller(StudentController::class)
     });
 
 // GTeacher routes
-Route::controller(GuideTeacherController::class)
+Route::controller(headRoomTeacherController::class)
     ->middleware(['auth'])
     ->prefix('/dashboard/guide-teacher')
     ->group(function () {

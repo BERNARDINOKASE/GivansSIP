@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class GuideTeacherController extends Controller
+class headRoomTeacherController extends Controller
 {
     public function index()
     {
@@ -31,7 +31,7 @@ class GuideTeacherController extends Controller
         $reportStudentSuccess = Report::whereIn('users_id', $student)
             ->where('status', 'selesai')->count();
 
-        return view('content.gTheacer.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
+        return view('content.headRoomTeacher.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
     }
 
     public function reportWaiting()
