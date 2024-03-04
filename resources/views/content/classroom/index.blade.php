@@ -14,7 +14,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard/admin">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Kelas X</li>
                     </ol>
                 </nav>
@@ -56,7 +56,6 @@
                                                 <label for="name">Nama Kelas</label>
                                                 <div class="form-group">
                                                 <input id="name" name="name" type="text" class="form-control" value="{{ $kelas }}" readonly>
-                                                 </select>
                                                 </div>
                                                 <label for="class">Kelas </label>
                                                 <div class="form-group">
@@ -99,13 +98,19 @@
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$data->name}}</td>
                                                 <td>{{$data->class}}</td>
-                                                <td>
-                                                <form action="{{route('classroom.delete', $data->id)}}" method="POST">
-                                                    @method('delete')
+                                                <td class="d-lg-inline-flex">
+                                                     <a href="{{route('classroom.edit', $data->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                     </a>
+                                                    <a href="{{route('classroom.show', $data->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                                        <i class="bi bi-info-circle"></i>
+                                                     </a>
+                                                     <form action="{{route('classroom.delete', $data->id)}}" method="POST">
+                                                     @method('delete')
                                                      @csrf
                                                     <button type="submit" class="ms-1 btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"title="Hapus"><i class="bi bi-trash"></i></button>
-                                                </form>
-                                                </td>
+                                                    </form>
+                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

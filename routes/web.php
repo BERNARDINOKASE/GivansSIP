@@ -70,9 +70,15 @@ Route::middleware('auth')->group(function () {
 
 
 //ClassRoomRoute
-Route::get('/content/classroom/index', [ClassRoomController::class, 'index']);
-Route::post('/content/classroom/index', [ClassRoomController::class, 'store'])->name('classroom.store');
-Route::delete('/{id}', [ClassRoomController::class, 'destroy'])->name('classroom.delete');
+Route::controller(ClassRoomController::class)
+    ->group(function () {
+        Route::get('/classroom', 'index')->name('classroom.index');
+        Route::post('/classroom', 'store')->name('classroom.store');
+        Route::get('/classroom/edit/{id}', 'edit')->name('classroom.edit');
+        Route::put('/{id}', 'update')->name('classroom.update');
+        Route::get('/classroom/show/{id}', 'show')->name('classroom.show');
+        Route::delete('/{id}', 'destroy')->name('classroom.delete');
+    });
 
 
 // Reports Routes
