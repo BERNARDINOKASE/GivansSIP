@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
+use App\Models\Offense;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,14 +40,29 @@ class headRoomTeacherController extends Controller
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
         $reportWaiting = Report::whereIn('users_id', $student)
             ->where('status', 'menunggu')->get();
-        dd($reportWaiting);
+        // dd($reportWaiting);
+        return view('content.headRoomTeacher.reportWaiting', compact('reportWaiting'));
     }
 
     public function reportOnProgress()
     {
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportWaiting = Report::whereIn('users_id', $student)
+        $reportOnProgress = Report::whereIn('users_id', $student)
             ->where('status', 'proses')->get();
-        dd($reportWaiting);
+        return view('content.headRoomTeacher.reportOnProgress', compact('reportOnProgress'));
+    }
+
+    public function reportEdit($id)
+    {
+        $student = DB::table('users')->select('id')
+            ->where('class_room_id', Auth::user()->class_room_id);
+        $report = Report::whereIn('users_id', $student)
+            ->where('id', $id)->first();
+        $offense = Offense::all();
+
+        $reportUserName = DB::table('reports')->select('users_id');
+        $userName = User::wherein('id', $reportUserName)->first();
+        // dd($userName);
+        return view('content.headRoomTeacher.editReport', compact('report', 'offense', 'userName'));
     }
 }

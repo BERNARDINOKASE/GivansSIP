@@ -48,7 +48,7 @@ class AuthenticateController extends Controller
                 return to_route('admin.index');
             }
             if (Auth::user()->role == 'gTeacher') {
-                return to_route('gTeacher.index');
+                return to_route('hrTeacher.index');
             }
         } else {
             return redirect()->back();

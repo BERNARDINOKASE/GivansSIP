@@ -60,7 +60,7 @@
                                 <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
                             </td>
                             <td class="d-lg-inline-flex">
-                                <a href="" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <a href="" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
