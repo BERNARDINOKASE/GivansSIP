@@ -114,7 +114,7 @@
                         @elseif (auth()->user()->role == 'admin')
                             @include('layouts.admin.sidebar')
                         @elseif (auth()->user()->role == 'gTeacher')
-                            @include('layouts.gTeacher.sidebar')
+                            @include('layouts.headRoomTeacher.sidebar')
                         @else
                         @endif
                     </div>

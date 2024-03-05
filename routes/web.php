@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
-use App\Http\Controllers\Role\GuideTeacherController;
+use App\Http\Controllers\Role\headRoomTeacherController;
+use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
 
 /*
@@ -61,15 +62,17 @@ Route::controller(StudentController::class)
         Route::get('/', 'index')->name('student.index');
     });
 
-// GTeacher routes
-Route::controller(GuideTeacherController::class)
+// head Room Teacher routes
+Route::controller(headRoomTeacherController::class)
     ->middleware(['auth'])
-    ->prefix('/dashboard/guide-teacher')
+    ->prefix('/dashboard/headroom-teacher')
     ->group(function () {
-        Route::get('/', 'index')->name('gTeacher.index');
-        Route::get('/reports-waiting', 'reportWaiting')->name('gTeacher.reportsWaiting');
-        Route::get('/reports-on-progres', 'reportOnProgress')->name('gTeacher.reportOnProgress');
+        Route::get('/', 'index')->name('hrTeacher.index');
+        Route::get('/reports-waiting', 'reportWaiting')->name('hrTeacher.reportsWaiting');
+        Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
+        Route::get('/report/{id}', 'reportEdit')->name('hrTeacher.editReport');
     });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
