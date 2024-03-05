@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('evidence')->required();
             $table->string('solutions', 255)->nullable();
             $table->text('notes')->nullable();
-            $table->tinyInteger('status')->comment('1=>menunggu, 2=>proses, 3=>selesai, 4=>disposisi, 5=>dibatalkan')->required();
+            $table->tinyInteger('status')->comment('1=>menunggu, 2=>proses, 3=>selesai, 4=>disposisi, 5=>dibatalkan')->default('1')->required();
             $table->timestamps();
         });
     }
