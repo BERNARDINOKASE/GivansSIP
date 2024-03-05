@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.main')
-@section('title', 'Dashboard Admin')
+@section('title', 'Dashboard Wali Kelas')
 @section('content')
 <section class="row">
     <div class="page-heading">
@@ -36,8 +36,8 @@
                             </div>
                             
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Jumlah Siswa</h6>
-                                <h6 class="font-extrabold mb-0">{{$students}}</h6>
+                                <h6 class="text-muted font-semibold">Siswa Wali</h6>
+                                <h6 class="font-extrabold mb-0">{{$studentCount}}</h6>
                             </div>
                         </div> 
                     </div>
@@ -53,8 +53,8 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Jumlah Kelas</h6>
-                                <h6 class="font-extrabold mb-0">{{$classRooms}}</h6>
+                                <h6 class="text-muted font-semibold">Pengaduan Belum di Proses</h6>
+                                <h6 class="font-extrabold mb-0">{{$reportStudentWaiting}}</h6>
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Jumlah Wali Kelas</h6>
-                                <h6 class="font-extrabold mb-0">{{$hrTeacher}}</h6>
+                                <h6 class="text-muted font-semibold">Pengaduan Dalam Proses</h6>
+                                <h6 class="font-extrabold mb-0">{{$reportStudentOnProgress}}</h6>
                             </div>
                         </div>
                     </div>
@@ -87,25 +87,8 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Jumlah Guru BK</h6>
-                                <h6 class="font-extrabold mb-0">{{$gTeacher}}</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                        <div class="row">
-                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                <div class="stats-icon red mb-2">
-                                    <i class="iconly-boldBookmark"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Jumlah Laporan</h6>
-                                <h6 class="font-extrabold mb-0">{{$reports}}</h6>
+                                <h6 class="text-muted font-semibold">Pengaduan Selesai</h6>
+                                <h6 class="font-extrabold mb-0">{{$reportStudentSuccess}}</h6>
                             </div>
                         </div>
                     </div>

@@ -113,6 +113,8 @@
                             @include('layouts.student.sidebar')
                         @elseif (auth()->user()->role == 'admin')
                             @include('layouts.admin.sidebar')
+                        @elseif (auth()->user()->role == 'gTeacher')
+                            @include('layouts.headRoomTeacher.sidebar')
                         @else
                         @endif
                     </div>

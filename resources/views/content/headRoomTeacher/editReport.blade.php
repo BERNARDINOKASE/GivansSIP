@@ -1,0 +1,110 @@
+@extends('layouts.dashboard.main')
+@section('title','Edit Pengaduan Siswa')
+@section('content')
+<section class="section">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Laporan</h3>
+                {{-- <p class="text-subtitle text-muted">
+                    Navbar will appear on the top of the page.
+                </p> --}}
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="">Laporan</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Laporan - {{$report->id}}</h5>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form class="form form-horizontal"  method="POST" action="{{route('report.update', $report->id)}}">
+                            @csrf
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="users_id">Pelapor</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" class="form-control" name="users_id" value="{{$userName->full_name}}" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="date_of_incident">Tanggal Kejadian</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="date" class="form-control" name="date_of_incident" value="{{$report->date_of_incident}}" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="offense_id">Kategori Kejadian</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" class="form-control" name="offense_id" value="{{$report->offense->name}}" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="location_of_incident">Lokasi Kejadian</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" class="form-control" name="location_of_incident" value="{{$report->location_of_incident}}" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="evidence">Bukti</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" class="form-control" name="evidence" value="{{$report->evidence}}" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="chronology">Kronologi</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea type="text" class="form-control" name="chronology" readonly>{{$report->chronology}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="notes">Catatan</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea type="text" class="form-control" name="notes" >{{$report->notes}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="solutions">Solusi</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea type="text" class="form-control" name="solutions" >{{$report->solutions}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="disposition">Disposisi Pengaduan</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <select class="form-control" id="basicSelect">
+                                            <option selected value="">--Disposisi Pengaduan--</option>
+                                            <option>IT</option>
+                                            <option>Blade Runner</option>
+                                            <option>Thor Ragnarok</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection

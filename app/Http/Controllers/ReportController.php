@@ -11,38 +11,48 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $report = Report::orderBy('updated_at', 'DESC')->get();
+        $report = Report::orderBy('updated_at', 'DESC')
+            ->where('users_id', Auth::id())->get();
         $offense = Offense::all();
         // dd($report);
-        return view('content.report.index', compact('offense', 'report'));
+        return view('content.report.index', compact('report', 'offense'));
     }
+
+    public function create()
+    {
+        $offense = Offense::all();
+        return view('content.report.create', compact('offense'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'offense_id' => ['required', 'exists:offenses,id'],
-            'date_report' => ['required', 'date'],
+            'date_of_incident' => ['required', 'date'],
             'location_of_incident' => ['required', 'string'],
             'chronology' => ['required', 'string'],
             'evidence' => ['required'],
-            'solutions' => ['nullable'],
-            'notes' => ['nullable'],
-            // 'status' => ['nullable'],
+        ], [
+            'offense_id.required' => 'Kategori pengajuan belum diisi',
+            'date_of_incident.required' => 'Tanggal kejadian belum diisi',
+            'location_of_incident.required' => 'Lokasi kejadian belum diisi',
+            'chronology.required' => 'Kronologi belum diisi',
+            'evidence.required' => 'Bukti belum diisi',
+            'date_of_incident.date' => 'Bukan bertipe tanggal',
+            'offense_id.exists' => 'Kategori tidak terdaftar di dalam sistem',
         ]);
 
         $requestReports = [
             'users_id' => Auth::id(),
             'offense_id' => $request->offense_id,
-            'date_report' => $request->date_report,
+            'date_of_incident' => $request->date_of_incident,
             'location_of_incident' => $request->location_of_incident,
             'chronology' => $request->chronology,
             'evidence' => $request->evidence,
-            'solutions' => $request->solutions,
-            'notes' => $request->notes,
-            // 'status' => 'pending'
         ];
 
         $data = Report::create($requestReports);
-        return redirect()->back();
+        return to_route('report.index');
     }
     public function edit(string $id)
     {
@@ -56,7 +66,7 @@ class ReportController extends Controller
     {
         $request->validate([
             'offense_id' => ['required', 'exists:offenses,id'],
-            'date_report' => ['required', 'date'],
+            'date_of_incident' => ['required', 'date'],
             'location_of_incident' => ['required', 'string'],
             'chronology' => ['required', 'string'],
             'evidence' => ['required'],
@@ -67,7 +77,7 @@ class ReportController extends Controller
         $requestReports = [
             'users_id' => Auth::id(),
             'offense_id' => $request->offense_id,
-            'date_report' => $request->date_report,
+            'date_of_incident' => $request->date_of_incident,
             'location_of_incident' => $request->location_of_incident,
             'chronology' => $request->chronology,
             'evidence' => $request->evidence,
@@ -81,7 +91,8 @@ class ReportController extends Controller
 
     public function show(string $id)
     {
-        $report = Report::where('id', $id)->first();
+        $report = Report::where('id', $id)
+            ->where('users_id', Auth::id())->first();
         // dd($report);
         return view('content.report.show', compact('report'));
     }

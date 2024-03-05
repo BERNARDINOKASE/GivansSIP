@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-md btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#backdrop">Tambah Laporan</button>
+    {{-- <button class="btn btn-md btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#backdrop">Tambah Laporan</button> --}}
     <div class="row">
         <div class="col-md-12 col-12">
             <div class="card">
@@ -41,7 +41,6 @@
                     <tr>
                         <th>No</th>
                         <th>Kategori</th>
-                        
                         <th>Tanggal Kejadian</th>
                         <th>Lokasi Kejadian</th>
                         <th>Bukti</th>
@@ -54,7 +53,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->offense->name}}</td>                            
-                            <td>{{$item->date_report}}</td>
+                            <td>{{$item->date_of_incident}}</td>
                             <td>{{$item->location_of_incident}}</td>
                             <td>{{$item->evidence}}</td>
                             <td>
@@ -98,8 +97,8 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-3">
-                                        <label for="date_report">Tanggal</label>
-                                        <input class="form-control" type="date" name="date_report">
+                                        <label for="date_of_incident">Tanggal Kejadian</label>
+                                        <input class="form-control" type="date" name="date_of_incident">
                                     </div>
                                     <div class="col-3">
                                         <label for="offense_id">Kategori Kejadian</label>
