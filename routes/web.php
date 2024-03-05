@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
+use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
@@ -85,6 +86,17 @@ Route::middleware('auth')->group(function () {
 });
 
 
+//ClassRoomRoute
+Route::controller(ClassRoomController::class)
+    ->group(function () {
+        Route::get('/classroom', 'index')->name('classroom.index');
+        Route::post('/classroom', 'store')->name('classroom.store');
+        Route::get('/classroom/edit/{id}', 'edit')->name('classroom.edit');
+        Route::put('/{id}', 'update')->name('classroom.update');
+        Route::get('/classroom/show/{id}', 'show')->name('classroom.show');
+        Route::delete('/{id}', 'destroy')->name('classroom.delete');
+    });
+
 
 // Reports Routes
 Route::controller(ReportController::class)
@@ -99,5 +111,6 @@ Route::controller(ReportController::class)
         Route::get('/{id}', 'show')->name('report.show');
         Route::delete('/{id}', 'destroy')->name('report.delete');
     });
+
 
 require __DIR__ . '/auth.php';
