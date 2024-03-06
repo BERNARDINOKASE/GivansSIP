@@ -41,7 +41,7 @@ class headRoomTeacherController extends Controller
         $reportWaiting = Report::whereIn('users_id', $student)
             ->where('status', 'menunggu')->get();
         // dd($reportWaiting);
-        return view('content.headRoomTeacher.reportWaiting', compact('reportWaiting'));
+        return view('content.headRoomTeacher.report.reportWaiting', compact('reportWaiting'));
     }
 
     public function reportOnProgress()
@@ -49,7 +49,7 @@ class headRoomTeacherController extends Controller
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
         $reportOnProgress = Report::whereIn('users_id', $student)
             ->where('status', 'proses')->get();
-        return view('content.headRoomTeacher.reportOnProgress', compact('reportOnProgress'));
+        return view('content.headRoomTeacher.report.reportOnProgress', compact('reportOnProgress'));
     }
     public function reportSuccess()
     {
@@ -57,7 +57,7 @@ class headRoomTeacherController extends Controller
         $reportStudentSuccess = Report::whereIn('users_id', $student)
             ->where('status', 'selesai')->get();
         // dd($reportStudentSuccess);
-        return view('content.headRoomTeacher.reportSuccess', compact('reportStudentSuccess'));
+        return view('content.headRoomTeacher.report.reportSuccess', compact('reportStudentSuccess'));
     }
 
     public function reportEdit($id)
@@ -72,7 +72,7 @@ class headRoomTeacherController extends Controller
         $userName = User::wherein('id', $reportUserName)->select('id')->first();
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.headRoomTeacher.editReport', compact('report', 'offense', 'userName'));
+        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'offense', 'userName'));
     }
 
     public function reportUpdate(Request $request, $id)
@@ -101,7 +101,7 @@ class headRoomTeacherController extends Controller
     public function reportShow($reportId)
     {
         $report = Report::where('id', $reportId)->first();
-        return view('content.headRoomTeacher.showReport', compact('report'));
+        return view('content.headRoomTeacher.report.reportShow', compact('report'));
     }
 
     public function reportUserShow($reportId, $userId)
@@ -109,6 +109,14 @@ class headRoomTeacherController extends Controller
         Report::where('id', $reportId);
         User::where('id', $userId)->get();
         // dd($userId, $report);
-        return view('content.headRoomTeacher.reportUser');
+        return view('content.headRoomTeacher.report.reportUser');
+    }
+
+    public function students()
+    {
+        $className = ClassRoom::select('name', 'class')->where('id', auth()->user()->class_room_id)->first();
+        $students = User::where('class_room_id', auth()->user()->class_room_id)
+            ->where('role', 'student')->get();
+        return view('content.headRoomTeacher.student.students', compact('students', 'className'));
     }
 }
