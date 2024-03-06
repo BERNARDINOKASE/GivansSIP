@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.main')
-@section('title','Pengaduan Sedang di Proses')
+@section('title','Pengaduan Selesai')
 
 @push('style')
     <link rel="stylesheet" href="{{asset('dashboard/')}}/compiled/css/table-datatable.css" />
@@ -10,9 +10,9 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Pengaduan Belum di Proses</h3>
+                <h3>Pengaduan Selesai di Proses</h3>
                 <p class="text-subtitle text-muted">
-                    Daftar pengaduan sedang di proses.
+                    Daftar pengaduan selesai di proses.
                 </p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -49,7 +49,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($reportOnProgress as $item)
+                    @foreach ($reportStudentSuccess as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->offense->name}}</td>                            
@@ -60,10 +60,7 @@
                                 <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
                             </td>
                             <td class="d-lg-inline-flex">
-                                <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                <a href="{{route('hrTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                     <i class="bi bi-info-circle"></i>
                                 </a>
                                 {{-- <form action="{{route('report.delete', $item->id)}}" method="POST">

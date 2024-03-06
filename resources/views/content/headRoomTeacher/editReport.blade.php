@@ -32,7 +32,8 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal"  method="POST" action="{{route('report.update', $report->id)}}">
+                        <form class="form form-horizontal"  method="POST" action="{{route('hrTeacher.reportUpdate', $report->id)}}">
+                            @method('PATCH')
                             @csrf
                             <div class="form-body">
                                 <div class="row">
@@ -40,7 +41,7 @@
                                         <label for="users_id">Pelapor</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" class="form-control" name="users_id" value="{{$userName->full_name}}" readonly>
+                                        <input type="text" class="form-control" name="users_id" value="{{$report->users_id}}" readonly>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="date_of_incident">Tanggal Kejadian</label>
@@ -83,6 +84,17 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <textarea type="text" class="form-control" name="solutions" >{{$report->solutions}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="status">Status Pengaduan</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <select class="form-control" id="basicSelect" name="status">
+                                            <option value="">--Status Pengaduan--</option>
+                                            <option value="menunggu" {{ ($report->status == "menunggu")? "selected" : "" }} >Menunggu</option>
+                                            <option value="proses" {{ ($report->status == "proses")? "selected" : "" }} >Proses</option>
+                                            <option value="selesai" {{ ($report->status == "selesai")? "selected" : "" }} >Selesai</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="disposition">Disposisi Pengaduan</label>

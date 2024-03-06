@@ -36,46 +36,38 @@
                 <h5 class="card-title">Tabel Laporan</h5>
                 </div>
                 <div class="card-body">
-                <table class="table table-striped" id="table1">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kategori</th>
-                        <th>Tanggal Kejadian</th>
-                        <th>Lokasi Kejadian</th>
-                        <th>Bukti</th>
-                        <th>Status Laporan</th>
-                        <th>Aksi</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($report as $item)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->offense->name}}</td>                            
-                            <td>{{$item->date_of_incident}}</td>
-                            <td>{{$item->location_of_incident}}</td>
-                            <td>{{$item->evidence}}</td>
-                            <td>
-                                <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
-                            </td>
-                            <td class="d-lg-inline-flex">
-                                <a href="{{route('report.edit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="{{route('report.show', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
-                                    <i class="bi bi-info-circle"></i>
-                                </a>
-                                <form action="{{route('report.delete', $item->id)}}" method="POST">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" class="ms-1 btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"title="Hapus"><i class="bi bi-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Kategori</th>
+                                <th>Tanggal Kejadian</th>
+                                <th>Lokasi Kejadian</th>
+                                <th>Bukti</th>
+                                <th>Status Laporan</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($report as $item)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->offense->name}}</td>                            
+                                <td>{{$item->date_of_incident}}</td>
+                                <td>{{$item->location_of_incident}}</td>
+                                <td>{{$item->evidence}}</td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
+                                </td>
+                                <td class="d-lg-inline-flex">
+                                    <a href="{{route('report.show', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
