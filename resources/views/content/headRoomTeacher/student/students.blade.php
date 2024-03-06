@@ -10,9 +10,9 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Siswa Kelas {{$className->name}}</h3>
+                <h3>Siswa Kelas {{$className->name}}-{{$className->class}}</h3>
                 <p class="text-subtitle text-muted">
-                    Daftar nama siswa kelas {{$className->name}}.
+                    Daftar nama siswa kelas {{$className->name}}-{{$className->class}}.
                 </p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">

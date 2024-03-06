@@ -114,7 +114,7 @@ class headRoomTeacherController extends Controller
 
     public function students()
     {
-        $className = ClassRoom::select('name')->where('id', auth()->user()->class_room_id)->first();
+        $className = ClassRoom::select('name', 'class')->where('id', auth()->user()->class_room_id)->first();
         $students = User::where('class_room_id', auth()->user()->class_room_id)
             ->where('role', 'student')->get();
         return view('content.headRoomTeacher.student.students', compact('students', 'className'));
