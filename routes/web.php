@@ -26,17 +26,6 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/dashboard/guest', function () {
-    return view('content/guest/index');
-});
-
-Route::get('/dashboard/admin', function () {
-    return view('content/admin/index');
-});
-
-Route::get('/dashboard/student', function () {
-    return view('content/student/index');
-});
 
 // Authentication routes
 
@@ -63,6 +52,8 @@ Route::controller(StudentController::class)
         Route::get('/', 'index')->name('student.index');
     });
 
+
+
 // head Room Teacher routes
 Route::controller(headRoomTeacherController::class)
     ->middleware(['auth'])
@@ -71,7 +62,11 @@ Route::controller(headRoomTeacherController::class)
         Route::get('/', 'index')->name('hrTeacher.index');
         Route::get('/reports-waiting', 'reportWaiting')->name('hrTeacher.reportsWaiting');
         Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
-        Route::get('/report/{id}', 'reportEdit')->name('hrTeacher.editReport');
+        Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
+        Route::get('/reports/{id}', 'reportEdit')->name('hrTeacher.editReport');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('hrTeacher.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('hrTeacher.reportShow');
+        Route::get('/reports={reportId}/users={userId?}', 'reportUserShow')->name('hrTeacher.reportUserShow');
     });
 
 

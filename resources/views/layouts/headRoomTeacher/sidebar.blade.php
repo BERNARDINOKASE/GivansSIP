@@ -23,6 +23,10 @@
             <li class="submenu-item {{ Request::routeIs('hrTeacher.reportOnProgress*')?'active':'' }}">
                 <a href="{{route('hrTeacher.reportOnProgress')}}" class="submenu-link">Pengaduan Dalam Proses</a>
             </li>
+
+            <li class="submenu-item {{ Request::routeIs('hrTeacher.reportSuccess*')?'active':'' }}">
+                <a href="{{route('hrTeacher.reportSuccess')}}" class="submenu-link">Pengaduan Selesai</a>
+            </li>
         </ul>
     </li>
 </ul>
