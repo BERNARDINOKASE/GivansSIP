@@ -32,7 +32,7 @@ class headRoomTeacherController extends Controller
         $reportStudentSuccess = Report::whereIn('users_id', $student)
             ->where('status', 'selesai')->count();
 
-        return view('content.headRoomTeacher.report.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
+        return view('content.headRoomTeacher.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
     }
 
     public function reportWaiting()
@@ -114,8 +114,9 @@ class headRoomTeacherController extends Controller
 
     public function students()
     {
-        $student = User::where('class_room_id', auth()->user()->class_room_id)
+        $className = ClassRoom::select('name')->where('id', auth()->user()->class_room_id)->first();
+        $students = User::where('class_room_id', auth()->user()->class_room_id)
             ->where('role', 'student')->get();
-        dd($student);
+        return view('content.headRoomTeacher.student.students', compact('students', 'className'));
     }
 }

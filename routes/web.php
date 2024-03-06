@@ -60,6 +60,8 @@ Route::controller(headRoomTeacherController::class)
     ->prefix('/dashboard/headroom-teacher')
     ->group(function () {
         Route::get('/', 'index')->name('hrTeacher.index');
+
+        // Report
         Route::get('/reports-waiting', 'reportWaiting')->name('hrTeacher.reportsWaiting');
         Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
         Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
@@ -67,6 +69,9 @@ Route::controller(headRoomTeacherController::class)
         Route::patch('/reports/{id}', 'reportUpdate')->name('hrTeacher.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('hrTeacher.reportShow');
         Route::get('/reports={reportId}/users={userId?}', 'reportUserShow')->name('hrTeacher.reportUserShow');
+
+        // Student
+        Route::get('/students', 'students')->name('hrTeacher.studentsIndex');
     });
 
 
