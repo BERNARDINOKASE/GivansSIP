@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('full_name')->required();
             $table->enum('gender', ['male', 'female'])->required();
             $table->string('phone_number')->nullable();
-            $table->enum('role', ['guest', 'student', 'admin', 'gTeacher', 'hrTeacher'])->default('guest')->required();
+            $table->enum('role', ['tamu', 'siswa', 'admin', 'guruBk', 'walikelas', 'kepalaSekolah'])->default('tamu')->required();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -13,6 +13,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $headMaster = [
+            [
+                'full_name' => 'Kepala Sekolah',
+                'second_id' => '12002312199992',
+                'gender' => 'male',
+                'email' => 'kepsek@example.com',
+                'role' => 'kepalasekolah',
+                'password' => bcrypt('password'),
+            ]
+        ];
         $admin = [
             [
                 'full_name' => 'Admin 1',
@@ -31,7 +41,7 @@ class UserSeeder extends Seeder
                 'class_room_id' => '1',
                 'gender' => 'male',
                 'email' => 'bernard@example.com',
-                'role' => 'student',
+                'role' => 'siswa',
                 'password' => bcrypt('password'),
             ], [
                 'full_name' => 'Awi',
@@ -39,7 +49,7 @@ class UserSeeder extends Seeder
                 'class_room_id' => '1',
                 'gender' => 'male',
                 'email' => 'awi@example.com',
-                'role' => 'student',
+                'role' => 'siswa',
                 'password' => bcrypt('password'),
             ], [
                 'full_name' => 'immo',
@@ -47,7 +57,7 @@ class UserSeeder extends Seeder
                 'class_room_id' => '2',
                 'gender' => 'male',
                 'email' => 'imo@example.com',
-                'role' => 'student',
+                'role' => 'siswa',
                 'password' => bcrypt('password'),
             ], [
                 'full_name' => 'milan',
@@ -55,7 +65,7 @@ class UserSeeder extends Seeder
                 'class_room_id' => '2',
                 'gender' => 'male',
                 'email' => 'milan@example.com',
-                'role' => 'student',
+                'role' => 'siswa',
                 'password' => bcrypt('password'),
             ]
         ];
@@ -67,7 +77,7 @@ class UserSeeder extends Seeder
                 'second_id' => '19902222312312',
                 'gender' => 'male',
                 'email' => 'walikelasxa@example.com',
-                'role' => 'gTeacher',
+                'role' => 'waliKelas',
                 'password' => bcrypt('password'),
             ], [
                 'full_name' => 'Wali Kelas X B',
@@ -75,7 +85,7 @@ class UserSeeder extends Seeder
                 'second_id' => '199011112312312',
                 'gender' => 'male',
                 'email' => 'walikelasxb@example.com',
-                'role' => 'gTeacher',
+                'role' => 'waliKelas',
                 'password' => bcrypt('password'),
             ]
         ];
@@ -87,6 +97,9 @@ class UserSeeder extends Seeder
             User::create($key);
         }
         foreach ($admin as $key) {
+            User::create($key);
+        }
+        foreach ($headMaster as $key) {
             User::create($key);
         }
     }
