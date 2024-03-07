@@ -27,9 +27,6 @@ use App\Http\Controllers\Role\StudentController;
 Route::get('/', function () {
     return view('homepage');
 });
-Route::get('/criticandsuggest/index', function () {
-    return view('content/criticAndSuggest/index');
-});
 
 // Authentication routes
 
@@ -40,6 +37,7 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('user
 Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
 
 // Critic routes 
+Route::get('/kritik-dan-saran',  [CriticAndSuggestController::class, 'index'])->name('criticAndSuggest.index');
 Route::post('/kritik-dan-saran', [CriticAndSuggestController::class, 'store'])->name('criticAndSuggest.store');
 
 
