@@ -7,6 +7,7 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
 use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\CriticAndSuggestController;
 use App\Http\Controllers\Role\HeadMasterController;
 use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
@@ -35,6 +36,10 @@ Route::post('/login', [AuthenticateController::class, 'store'])->name('user.logi
 Route::get('/register', [AuthenticateController::class, 'register'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('user.register');
 Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.logout');
+
+// Critic routes 
+Route::post('/kritik-dan-saran', [CriticAndSuggestController::class, 'store'])->name('criticAndSuggest.store');
+
 
 // Admin routes
 
