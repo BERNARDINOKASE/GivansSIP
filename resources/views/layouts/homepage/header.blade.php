@@ -47,7 +47,7 @@
                 diam nonumy eirmod tempor
                 </p>
                 <a
-                href="criticandsuggest/index"
+                href="{{route('criticAndSuggest.index')}}"
                 class="main-btn wow fadeInUp"
                 data-wow-duration="1.3s"
                 data-wow-delay="1.1s"

@@ -29,19 +29,22 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form method="POST" action="{{route('report.store')}}">
+                        <form method="POST" action="{{route('criticAndSuggest.store')}}">
                             @csrf
                             <div class="col">
                                 <div class="col-md-3 col-12">
                                     <div class="form-group">
-                                        <label for="category of incident">Kategori </label>
-                                        <select class="form-select form-select" name="offense_id">
+                                        <label for="category">Kategori </label>
+                                        <select class="form-select form-select" name="category">
                                             <option selected value="">--Kategori --</option>
                                             
-                                                <option value=""> Pengaduan </option>
-                                                <option value=""> Kritik dan Saran </option>
+                                                <option value="Pengaduan"> Pengaduan </option>
+                                                <option value="Kritik_dan_saran"> Kritik dan Saran </option>
                                             
                                         </select>
+                                        @if ($errors->has('category'))
+                                            <span class="text-danger">{{$errors->first('category')}}</span>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -57,10 +60,10 @@
 
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
-                                        <label for="description">Deskripsi</label>
-                                        <textarea type="text" id="description" class="form-control" name="description" placeholder="Ceritakan "></textarea>
-                                        @if ($errors->has('description'))
-                                            <span class="text-danger">{{$errors->first('description')}}</span>
+                                        <label for="descriptions">Deskripsi</label>
+                                        <textarea type="text" id="descriptions" class="form-control" name="descriptions" placeholder="Ceritakan "></textarea>
+                                        @if ($errors->has('descriptions'))
+                                            <span class="text-danger">{{$errors->first('descriptions')}}</span>
                                         @endif
                                     </div>
                                 </div>
