@@ -53,7 +53,7 @@
                 data-wow-delay="1.1s"
                 >
                 <!-- Get Started -->
-                Ajukan Pengaduan
+                Ajukan Kritik dan Saran
                 </a>
             </div>
             <!-- header hero content -->
