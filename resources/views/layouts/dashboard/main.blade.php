@@ -116,7 +116,8 @@
                             @include('layouts.admin.sidebar')
                         @elseif (auth()->user()->role == 'walikelas')
                             @include('layouts.headRoomTeacher.sidebar')
-                        @else
+                        @elseif(auth()->user()->role == 'kepalaSekolah')
+                            @include('layouts.headMaster.sidebar')
                         @endif
                     </div>
                     {{-- END SIDEBAR MENU --}}
