@@ -16,6 +16,6 @@ class CriticAndSuggest extends Model
     protected $guard = [];
     protected $fillable = [
         'category',
-        'description',
+        'descriptions',
     ];
 }
