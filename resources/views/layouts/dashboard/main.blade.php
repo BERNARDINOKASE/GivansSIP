@@ -34,7 +34,8 @@
                             <div class="logo">
                                 <a href="index.html">
                                     <img
-                                        src="{{asset('dashboard/')}}/compiled/svg/logo.svg"
+                                        style="width: 50px; height: 50px"
+                                        src="{{asset('dashboard/')}}/compiled/svg/givans_logo.svg"
                                         alt="Logo"
                                         srcset=""
                                     />
