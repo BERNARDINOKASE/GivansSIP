@@ -19,4 +19,8 @@ class HeadMasterController extends Controller
 
         return view('content.headMaster.index', compact('critic', 'student', 'hrTeacher', 'report'));
     }
+    public function CriticAndSuggest(){
+        $data = CriticAndSuggest::all();
+        
+    }
 }
