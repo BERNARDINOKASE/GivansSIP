@@ -108,13 +108,13 @@
                     </div>
                     {{-- START SIDEBAR MENU --}}
                     <div class="sidebar-menu">
-                        @if(auth()->user()->role == 'guest')
+                        @if(auth()->user()->role == 'tamu')
                             @include('layouts.guest.sidebar')
-                        @elseif(auth()->user()->role == 'student')
+                        @elseif(auth()->user()->role == 'siswa')
                             @include('layouts.student.sidebar')
                         @elseif (auth()->user()->role == 'admin')
                             @include('layouts.admin.sidebar')
-                        @elseif (auth()->user()->role == 'gTeacher')
+                        @elseif (auth()->user()->role == 'walikelas')
                             @include('layouts.headRoomTeacher.sidebar')
                         @else
                         @endif
