@@ -38,17 +38,20 @@ class AuthenticateController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            if (Auth::user()->role == 'guest') {
+            if (Auth::user()->role == 'tamu') {
                 return view('content.guest.index');
             }
-            if (Auth::user()->role == 'student') {
+            if (Auth::user()->role == 'siswa') {
                 return to_route('student.index');
             }
             if (Auth::user()->role == 'admin') {
                 return to_route('admin.index');
             }
-            if (Auth::user()->role == 'gTeacher') {
+            if (Auth::user()->role == 'walikelas') {
                 return to_route('hrTeacher.index');
+            }
+            if (Auth::user()->role == 'kepalaSekolah') {
+                return to_route('headMaster.index');
             }
         } else {
             return redirect()->back();
