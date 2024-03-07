@@ -26,7 +26,9 @@ use App\Http\Controllers\Role\StudentController;
 Route::get('/', function () {
     return view('homepage');
 });
-
+Route::get('/criticandsuggest/index', function () {
+    return view('content/criticAndSuggest/index');
+});
 
 // Authentication routes
 

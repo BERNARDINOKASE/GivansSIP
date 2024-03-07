@@ -47,7 +47,7 @@
                 diam nonumy eirmod tempor
                 </p>
                 <a
-                href="javascript:void(0)"
+                href="criticandsuggest/index"
                 class="main-btn wow fadeInUp"
                 data-wow-duration="1.3s"
                 data-wow-delay="1.1s"
