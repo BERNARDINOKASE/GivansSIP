@@ -16,7 +16,7 @@ class headRoomTeacherController extends Controller
     public function index()
     {
         $studentCount = User::where('class_room_id', Auth::user()->class_room_id)
-            ->where('role', 'student')->count();
+            ->where('role', 'siswa')->count();
 
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
 
@@ -116,7 +116,7 @@ class headRoomTeacherController extends Controller
     {
         $className = ClassRoom::select('name', 'class')->where('id', auth()->user()->class_room_id)->first();
         $students = User::where('class_room_id', auth()->user()->class_room_id)
-            ->where('role', 'student')->get();
+            ->where('role', 'siswa')->get();
         return view('content.headRoomTeacher.student.students', compact('students', 'className'));
     }
 }

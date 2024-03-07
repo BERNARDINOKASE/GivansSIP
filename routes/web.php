@@ -7,6 +7,7 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
 use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\Role\HeadMasterController;
 use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
@@ -46,7 +47,7 @@ Route::controller(AdminController::class)
 
 // Student routes
 Route::controller(StudentController::class)
-    ->middleware(['auth', 'role:student'])
+    ->middleware(['auth', 'role:siswa'])
     ->prefix('/dashboard/student')
     ->group(function () {
         Route::get('/', 'index')->name('student.index');
@@ -56,7 +57,7 @@ Route::controller(StudentController::class)
 
 // head Room Teacher routes
 Route::controller(headRoomTeacherController::class)
-    ->middleware(['auth'])
+    ->middleware(['auth', 'role:walikelas'])
     ->prefix('/dashboard/headroom-teacher')
     ->group(function () {
         Route::get('/', 'index')->name('hrTeacher.index');
@@ -74,6 +75,14 @@ Route::controller(headRoomTeacherController::class)
         Route::get('/students', 'students')->name('hrTeacher.studentsIndex');
     });
 
+
+// HeadMaster Routes
+Route::controller(HeadMasterController::class)
+    ->middleware(['auth', 'role:kepalaSekolah'])
+    ->prefix('/dashboard/headmaster/')
+    ->group(function () {
+        Route::get('/', 'index')->name('headMaster.index');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
