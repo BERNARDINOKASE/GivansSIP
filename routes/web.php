@@ -120,7 +120,7 @@ Route::resource('/offense',OffenseController::class)->only([
 ]);
 
 
-=======
+
 Route::controller(ReportController::class)
     ->middleware(['auth'])
     ->prefix('report')
