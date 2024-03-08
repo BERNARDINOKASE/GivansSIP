@@ -1121,18 +1121,80 @@ p {
 }
 
 /*===========================
+  CRITIC AND SUGGEST  css 
+===========================*/
+
+
+.critic-and-suggest-form {
+  position: relative;
+  /* align-content: center; */
+  /* align-items: center; */
+  padding: 50px;
+  border: none;
+}
+
+.critic-and-suggest-area {
+  padding: 60px;
+  /* display: flex;
+  justify-content: center; */
+  /* box-shadow: 0px 0px 18px 0px rgba(50, 77, 215, 0.14); */
+}
+
+.hr {
+  display: flex;
+  justify-items: center;
+  justify-self: center;
+}
+
+.critic-and-suggest-title {
+  color: #444444;
+  margin-bottom: 23px;
+}
+
+.critic-and-suggest-form label {
+  position: relative;
+  display: inline-block;
+  color: #444444;
+  font-size: 17px;
+}
+
+.critic-and-suggest-form input{
+  position: relative;
+  border: 2px solid #cfcfcf;
+  /* margin: 12px 0px; */
+  /* margin-bottom: 16px; */
+  height: 25px;
+  width: 100%;
+  padding: 19px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+/* .critic-and-suggest-footer{
+  display: flex;
+  width: 10%;
+} */
+
+
+/*===========================
   LOGIN  css 
 ===========================*/
+
+
 
 
 .login-form {
   position: relative;
   align-content: center;
   padding: 50px;
+  border: none;
 }
 
 .login-area {
-  padding: 80px;
+  padding: 60px;
   display: flex;
   justify-content: center;
   /* box-shadow: 0px 0px 18px 0px rgba(50, 77, 215, 0.14); */
@@ -1176,6 +1238,15 @@ p {
 }
 
 
+@media (max-width: 600px) {
+  .critic-and-suggest-form{
+    /* padding: 50px; */
+    padding:12px;
+  }
+  .login-area{
+    padding: 0px;
+  }
+}
 /*===========================
   SUBSCRIBE  css 
 ===========================*/
@@ -1191,6 +1262,7 @@ p {
   .subscribe-area {
     padding: 10px 30px 60px;
   }
+  
 }
 
 .subscribe-content .subscribe-title {
