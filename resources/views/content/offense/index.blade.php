@@ -2,7 +2,7 @@
 @push('style')
 <link rel="stylesheet" href="{{('dashboard/')}}/extensions/simple-datatables/style.css">
 @endpush
-@section('content_kasus')
+@section('content')
 
 <div class="page-heading">
     <div class="page-title">
