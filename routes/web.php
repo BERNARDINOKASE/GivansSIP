@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\OffenseController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
@@ -113,14 +112,7 @@ Route::controller(ClassRoomController::class)
     });
 
 
-
-
-Route::resource('/offense',OffenseController::class)->only([
-    'index','store','destroy'
-]);
-
-
-
+// Reports Routes
 Route::controller(ReportController::class)
     ->middleware(['auth'])
     ->prefix('report')
