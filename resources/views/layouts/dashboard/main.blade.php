@@ -150,7 +150,11 @@
         <script src="{{asset('dashboard/')}}/static/js/pages/dashboard.js"></script>        
         
         
-        @stack('script')  
+        @stack('script')
+         
+        
+                    
+                    
 
     </body>
 </html>
