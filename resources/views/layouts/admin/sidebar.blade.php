@@ -87,6 +87,13 @@
             >
         </li>
         </ul>
+        
+    </li>
+    <li class="sidebar-item">
+        <a href="#">
+        <i class="bi bi-journal"></i>
+        <span>Tabel Kasus</span>
+        </a>
     </li>
 
    
