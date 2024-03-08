@@ -106,6 +106,20 @@
                         </div>
                     </div>
                     {{-- START SIDEBAR MENU --}}
+<<<<<<< Updated upstream
+=======
+                    @if(request()->is("dashboard/guest"))
+                        @include('layouts.guest.sidebar')
+                    @elseif(request()->is("dashboard/student"))
+                        @include('layouts.student.sidebar')
+                    @elseif (request()->is("dashboard/admin"))
+                        @include('layouts.admin.sidebar')
+                    @elseif (request()->is("offense"))
+                        @include('layouts.admin.sidebar')
+                    @else
+                    @endif
+                   
+>>>>>>> Stashed changes
                     <div class="sidebar-menu">
                         @if(auth()->user()->role == 'guest')
                             @include('layouts.guest.sidebar')
@@ -124,7 +138,20 @@
                     @include('layouts.dashboard.header')
                 {{-- END HEADER --}}
                 <div id="main-content">
+<<<<<<< Updated upstream
                      @yield('content')
+=======
+                    @if(request()->is("student/pengaduan"))
+                        @yield('content_student')
+                    @elseif(request()->is("dashboard/guest"))    
+                         @yield('content')
+                    @elseif(request()->is("dashboard/student"))
+                        @yield('content_pengaduan')
+                    @elseif(request()->is("offense"))
+                        @yield('content_kasus')
+
+                    @endif
+>>>>>>> Stashed changes
                 </div>
 
                 {{-- START FOOTER --}}

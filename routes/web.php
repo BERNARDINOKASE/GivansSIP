@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OffenseController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
@@ -64,12 +65,18 @@ Route::middleware('auth')->group(function () {
 
 
 // Reports Routes
-Route::controller(ReportController::class)
-    ->middleware(['auth'])
-    ->prefix('report')
-    ->group(function () {
-        Route::get('/', 'index')->name('report.index');
-        Route::post('/', 'store')->name('report.store');
-    });
+// Route::controller(ReportController::class)
+//     ->middleware(['auth'])
+//     ->prefix('report')
+//     ->group(function () {
+//         Route::get('/', 'index')->name('report.index');
+//         Route::post('/', 'store')->name('report.store');
+//     });
+// Bagian Offense
+Route::resource('/offense',OffenseController::class)->only([
+    'index','store','destroy'
+]);
+
+
 
 require __DIR__ . '/auth.php';

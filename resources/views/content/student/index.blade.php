@@ -2,6 +2,8 @@
 @push('style')
     <link rel="stylesheet" href="{{asset('dashboard/')}}/extensions/quill/quill.snow.css">
     <link rel="stylesheet" href="{{asset('dashboard/')}}/extensions/quill/quill.bubble.css">
+    <link href="https://cdn.quilljs.com/1.3.5/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('dashboard/')}}/extensions/quill-emoji.css">
 @endpush
 @section('content')
 <h2>Form Laporan Pengaduan Siswa</h2>
@@ -102,5 +104,12 @@
 @endsection
 @push('script')
     <script src="{{asset('dashboard/')}}/extensions/quill/quill.min.js"></script>
+<<<<<<< Updated upstream
     <script src="{{asset('dashboard/')}}/static/js/pages/quill.js"></script>   
 @endpush
+=======
+    <script src="{{asset('dashboard/')}}/static/js/pages/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.5/quill.js"></script>
+    <script src="{{asset('dashboard')}}/extensions/quill-emoji.js"></script>   
+@endpush
+>>>>>>> Stashed changes
