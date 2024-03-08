@@ -14,7 +14,9 @@ class Report extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     protected $fillable = [
-        'date_report',
+        'users_id',
+        'offense_id',
+        'date_of_incident',
         'location_of_incident',
         'chronology',
         'evidence',

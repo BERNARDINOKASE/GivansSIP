@@ -47,13 +47,13 @@
                 diam nonumy eirmod tempor
                 </p>
                 <a
-                href="javascript:void(0)"
+                href="{{route('criticAndSuggest.index')}}"
                 class="main-btn wow fadeInUp"
                 data-wow-duration="1.3s"
                 data-wow-delay="1.1s"
                 >
                 <!-- Get Started -->
-                Ajukan Pengaduan
+                Ajukan Kritik dan Saran
                 </a>
             </div>
             <!-- header hero content -->

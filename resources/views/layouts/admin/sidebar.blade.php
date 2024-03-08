@@ -33,18 +33,18 @@
 
         <ul class="submenu">
         <li class="submenu-item">
-            <a href="layout-default.html" class="submenu-link"
+            <a href="/classroom?kelas=X" class="submenu-link"
             >Kelas X</a
             >
         </li>
 
         <li class="submenu-item">
-            <a href="layout-vertical-1-column.html" class="submenu-link"
+            <a href="/classroom?kelas=XI" class="submenu-link"
             >Kelas XI</a
             >
         </li>
         <li class="submenu-item">
-            <a href="layout-vertical-1-column.html" class="submenu-link"
+            <a href="/classroom?kelas=XII" class="submenu-link"
             >Kelas XII</a
             >
         </li>

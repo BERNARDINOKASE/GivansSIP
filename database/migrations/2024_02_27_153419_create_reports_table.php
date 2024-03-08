@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->date('date_report')->required();
+            $table->date('date_of_incident')->required();
             $table->string('location_of_incident')->required();
-            $table->string('chronology', 255)->required();
+            $table->longText('chronology')->required();
             $table->string('evidence')->required();
             $table->string('solutions', 255)->nullable();
             $table->text('notes')->nullable();
-            $table->enum('status', ['proccessing', 'pending', 'done'])->required();
+            $table->enum('status', ['menunggu', 'proses', 'selesai'])->required();
             $table->timestamps();
         });
     }

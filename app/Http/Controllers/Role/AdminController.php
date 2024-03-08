@@ -12,9 +12,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $students = User::select('role')->where('role', 'student')->count();
-        $hrTeacher = User::select('role')->where('role', 'hrTeacher')->count();
-        $gTeacher = User::select('role')->where('role', 'gTeacher')->count();
+        $students = User::select('role')->where('role', 'siswa')->count();
+        $hrTeacher = User::select('role')->where('role', 'walikelas')->count();
+        $gTeacher = User::select('role')->where('role', 'guruBk')->count();
         $classRooms = ClassRoom::count();
         $reports = Report::count();
         return view('content.admin.index', compact('reports', 'students', 'hrTeacher', 'gTeacher', 'classRooms'));

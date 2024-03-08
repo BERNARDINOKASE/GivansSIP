@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
 
         <!--====== Title ======-->
-        <title>SIP Givans - @yield('title')</title>
+        <title>SINANDA - @yield('title')</title>
 
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

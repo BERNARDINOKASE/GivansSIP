@@ -34,7 +34,8 @@
                             <div class="logo">
                                 <a href="index.html">
                                     <img
-                                        src="{{asset('dashboard/')}}/compiled/svg/logo.svg"
+                                        style="width: 50px; height: 50px"
+                                        src="{{asset('dashboard/')}}/compiled/svg/givans_logo.svg"
                                         alt="Logo"
                                         srcset=""
                                     />
@@ -121,13 +122,16 @@
                    
 >>>>>>> Stashed changes
                     <div class="sidebar-menu">
-                        @if(auth()->user()->role == 'guest')
+                        @if(auth()->user()->role == 'tamu')
                             @include('layouts.guest.sidebar')
-                        @elseif(auth()->user()->role == 'student')
+                        @elseif(auth()->user()->role == 'siswa')
                             @include('layouts.student.sidebar')
                         @elseif (auth()->user()->role == 'admin')
                             @include('layouts.admin.sidebar')
-                        @else
+                        @elseif (auth()->user()->role == 'walikelas')
+                            @include('layouts.headRoomTeacher.sidebar')
+                        @elseif(auth()->user()->role == 'kepalaSekolah')
+                            @include('layouts.headMaster.sidebar')
                         @endif
                     </div>
                     {{-- END SIDEBAR MENU --}}
