@@ -87,6 +87,7 @@ Route::controller(HeadMasterController::class)
     ->prefix('/dashboard/headmaster/')
     ->group(function () {
         Route::get('/', 'index')->name('headMaster.index');
+        Route::get('/kritik-dan-saran', 'getAllcriticAndSuggest')->name('headMaster.getAllcriticAndSuggest');
     });
 
 Route::get('/dashboard', function () {

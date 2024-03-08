@@ -14,9 +14,11 @@
         <span>Data </span>
         </a>
 
-        <ul class="submenu">
+        <ul class="submenu {{ Request::routeIs('headMaster.getAllcriticAndSuggest*')
+        |Request::routeIs('*')
+        ?'active':'' }}">
             <li class="submenu-item">
-                <a href="" class="submenu-link">Data Kasus</a>
+                <a href="{{route('headMaster.getAllcriticAndSuggest')}}" class="submenu-link">Data Kritik dan Saran</a>
             </li>
 
             <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">

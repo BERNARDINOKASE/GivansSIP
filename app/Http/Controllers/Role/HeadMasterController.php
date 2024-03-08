@@ -19,8 +19,10 @@ class HeadMasterController extends Controller
 
         return view('content.headMaster.index', compact('critic', 'student', 'hrTeacher', 'report'));
     }
-    public function CriticAndSuggest(){
+    public function getAllcriticAndSuggest()
+    {
         $data = CriticAndSuggest::all();
-        
+        // dd($data);
+        return view('content.headMaster.criticAndSuggest.getAllCriticAndSuggest', compact('data'));
     }
 }
