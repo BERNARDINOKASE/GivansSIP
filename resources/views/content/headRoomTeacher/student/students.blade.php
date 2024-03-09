@@ -55,7 +55,12 @@
                             <td>{{$item->second_id}}</td>
                             <td>{{$item->full_name}}</td>
                             {{-- <td>{{$item->class_rooms->name}}</td> --}}
-                            <td>{{$item->gender}}</td>
+                            {{-- <td>{{$item->gender}}</td> --}}
+                            @if ($item->gender == 'male')
+                                <td class="card-text ms-3">Laki - laki</td>
+                            @else
+                                <td class="card-text ms-3">Perempuan</td>
+                            @endif
                             <td>{{$item->phone_number}}</td>
                             <td class="d-lg-inline-flex">
                                 <a href="{{route('hrTeacher.studentShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">

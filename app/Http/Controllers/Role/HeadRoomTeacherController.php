@@ -119,5 +119,11 @@ class headRoomTeacherController extends Controller
             ->where('role', 'siswa')->get();
         return view('content.headRoomTeacher.student.students', compact('students', 'className'));
     }
-    
+
+    public function studentShow($id)
+    {
+        $data = User::where('id', $id)->first();
+        // dd($data);
+        return view('content.headRoomTeacher.student.studentShow', compact('data'));
+    }
 }
