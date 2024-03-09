@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Role\AdminController;
 use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\CriticAndSuggestController;
+use App\Http\Controllers\Role\GuideTeacherController;
 use App\Http\Controllers\Role\HeadMasterController;
 use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
@@ -81,6 +82,16 @@ Route::controller(headRoomTeacherController::class)
     });
 
 
+
+// Guide Teacher
+Route::controller(GuideTeacherController::class)
+    ->middleware(['auth', 'role:guruBk'])
+    ->prefix('/dashboard/guide-teacher/')
+    ->group(function () {
+        Route::get('/', 'index')->name('guideTeacher.index');
+    });
+
+    
 // HeadMaster Routes
 Route::controller(HeadMasterController::class)
     ->middleware(['auth', 'role:kepalaSekolah'])
