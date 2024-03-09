@@ -15,8 +15,8 @@
         </a>
 
         <ul class="submenu">
-            <li class="submenu-item">
-                <a href="" class="submenu-link">Data Kasus</a>
+            <li class="submenu-item {{ Request::routeIs('offense.index*')?'active':'' }}">
+                <a href="{{route('offense.index')}}" class="submenu-link ">Data Kasus</a>
             </li>
 
             <li class="submenu-item {{ Request::routeIs('report.index*')?'active':'' }}">

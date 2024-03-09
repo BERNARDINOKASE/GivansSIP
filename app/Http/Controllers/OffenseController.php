@@ -1,5 +1,4 @@
-`<?php
-
+<?php 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -24,14 +23,6 @@ class OffenseController extends Controller
         return back()->with('success','Kasus Berhasil Ditambahkan');
         
     }
-
-
-    public function update(Request $request, string $id)
-    {
-        
-        
-    }
-
   
     public function destroy(string $id)
     {
