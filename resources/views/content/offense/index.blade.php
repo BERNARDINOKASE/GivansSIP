@@ -1,4 +1,5 @@
 @extends('layouts.dashboard.main')
+@section('title','Kasus')
 @push('style')
 <link rel="stylesheet" href="{{('dashboard/')}}/extensions/simple-datatables/style.css">
 @endpush
