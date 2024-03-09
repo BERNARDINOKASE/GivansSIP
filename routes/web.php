@@ -12,6 +12,7 @@ use App\Http\Controllers\Role\HeadMasterController;
 use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
+use App\Http\Controllers\OffenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,5 +128,16 @@ Route::controller(ReportController::class)
         Route::delete('/{id}', 'destroy')->name('report.delete');
     });
 
+//Offense's Routes
+Route::controller(OffenseController::class)
+    ->middleware(['auth', 'role:admin'])
+    ->prefix('/dashboard/admin')
+    ->group(function () {
+        Route::get('/offense', 'index')->name('offense.index');
+        Route::post('/offense', 'store')->name('offense.store');
+        Route::delete('/offense{id}', 'destroy')->name('offense.delete');
+
+
+    });
 
 require __DIR__ . '/auth.php';
