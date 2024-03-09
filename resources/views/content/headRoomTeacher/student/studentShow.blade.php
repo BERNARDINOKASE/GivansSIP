@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.main')
-@section('title', 'Detail Pengaduan Siswa')
+@section('title', 'Detail Siswa')
 @section('content')
 <section class="section">
     <div class="page-title">
@@ -17,7 +17,7 @@
                             <a href="">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            <a href="">Laporan</a>
+                            <a href="">Siswa</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             <a href="">Detail Siswa</a>

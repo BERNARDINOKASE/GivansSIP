@@ -107,9 +107,9 @@ class headRoomTeacherController extends Controller
     public function reportUserShow($reportId, $userId)
     {
         Report::where('id', $reportId);
-        User::where('id', $userId)->get();
+        $data = User::where('id', $userId)->first();
         // dd($userId, $report);
-        return view('content.headRoomTeacher.report.reportUser');
+        return view('content.headRoomTeacher.report.reportUser', compact('data'));
     }
 
     public function students()
@@ -118,5 +118,12 @@ class headRoomTeacherController extends Controller
         $students = User::where('class_room_id', auth()->user()->class_room_id)
             ->where('role', 'siswa')->get();
         return view('content.headRoomTeacher.student.students', compact('students', 'className'));
+    }
+
+    public function studentShow($id)
+    {
+        $data = User::where('id', $id)->first();
+        // dd($data);
+        return view('content.headRoomTeacher.student.studentShow', compact('data'));
     }
 }

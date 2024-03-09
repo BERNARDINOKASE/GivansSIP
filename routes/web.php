@@ -78,6 +78,7 @@ Route::controller(headRoomTeacherController::class)
 
         // Student
         Route::get('/students', 'students')->name('hrTeacher.studentsIndex');
+        Route::get('/students={id?}', 'studentShow')->name('hrTeacher.studentShow');
     });
 
 
