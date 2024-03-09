@@ -33,7 +33,7 @@
     </li>
 
     <li class="sidebar-item {{ Request::routeIs('*')?'active':'' }}">
-        <a href="{{route('')}}" class="sidebar-link">
+        <a href="" class="sidebar-link">
         <i class="bi bi-house-door-fill"></i>
         <span>Siswa</span>
         </a>
