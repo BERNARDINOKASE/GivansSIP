@@ -25,4 +25,16 @@ class HeadMasterController extends Controller
         // dd($data);
         return view('content.headMaster.criticAndSuggest.getAllCriticAndSuggest', compact('data'));
     }
+
+    public function getAllHeadroomTeacher()
+    {
+        $data = User::where('role','walikelas')->get();
+        return view('content.headMaster.headRoomTeacher.getAllHeadroomTeacher', compact('data'));
+    }
+
+    public function getAllStudents()
+    {
+        $data = User::where('role','siswa')->get();
+        return view('content.headMaster.student.getAllStudents', compact('data'));
+    }
 }

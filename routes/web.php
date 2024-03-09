@@ -89,6 +89,9 @@ Route::controller(HeadMasterController::class)
     ->group(function () {
         Route::get('/', 'index')->name('headMaster.index');
         Route::get('/kritik-dan-saran', 'getAllcriticAndSuggest')->name('headMaster.getAllcriticAndSuggest');
+        Route::get('/Wali-Kelas','getAllHeadroomTeacher')->name('headMaster.getAllHeadroomTeacher');
+        Route::get('/siswa','getAllStudents')->name('headMaster.getAllStudents');
+
     });
 
 Route::get('/dashboard', function () {
