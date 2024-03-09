@@ -116,6 +116,8 @@
                             @include('layouts.admin.sidebar')
                         @elseif (auth()->user()->role == 'walikelas')
                             @include('layouts.headRoomTeacher.sidebar')
+                        @elseif (auth()->user()->role == 'guruBk')
+                            @include('layouts.guideTeacher.sidebar')
                         @elseif(auth()->user()->role == 'kepalaSekolah')
                             @include('layouts.headMaster.sidebar')
                         @endif
@@ -128,7 +130,7 @@
                     @include('layouts.dashboard.header')
                 {{-- END HEADER --}}
                 <div id="main-content">
-                     @yield('content')
+                    @yield('content')
                 </div>
 
                 {{-- START FOOTER --}}
