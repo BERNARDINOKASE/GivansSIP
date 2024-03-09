@@ -61,7 +61,7 @@
                             <td>                                
                                 <a href="" class="btn icon btn-sm btn-warning"data-bs-toggle="tooltip" data-bs-placement="top"data-bs-toggle="modalUpdate"
                                     title="Ubah"><i class="bi bi-pencil"></i></a>
-                                    <form class="d-inline" action="{{url('offense/'.$item->id)}}" method="POST">
+                                    <form class="d-inline" action="{{route('offense.delete',$item->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                             <button type="submit" title="Hapus"class="btn btn-danger"data-bs-dismiss="modal" data-bs-target="#Delete">

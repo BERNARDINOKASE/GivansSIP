@@ -135,7 +135,7 @@ Route::controller(OffenseController::class)
     ->group(function () {
         Route::get('/offense', 'index')->name('offense.index');
         Route::post('/offense', 'store')->name('offense.store');
-        Route::delete('/offense{id}', 'destroy')->name('offense.delete');
+        Route::delete('/{id}', 'destroy')->name('offense.delete');
 
 
     });

@@ -12,7 +12,7 @@ aria-labelledby="staticBackDropLabel" aria-hidden="true">
 
    
         <div class="modal-body">
-            <form action="{{url('offense')}}" method="POST"   >
+            <form action="{{route('offense.store')}}" method="POST"   >
                     @csrf
                     <div class="mb-3"></div>
                         <label for="name">Nama Kasus</label>          
