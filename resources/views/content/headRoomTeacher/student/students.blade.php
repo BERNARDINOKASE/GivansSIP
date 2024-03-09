@@ -58,10 +58,7 @@
                             <td>{{$item->gender}}</td>
                             <td>{{$item->phone_number}}</td>
                             <td class="d-lg-inline-flex">
-                                <a href="" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                <a href="{{route('hrTeacher.studentShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                     <i class="bi bi-info-circle"></i>
                                 </a>
                             </td>
