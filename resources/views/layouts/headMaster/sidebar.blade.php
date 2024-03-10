@@ -35,17 +35,17 @@
 
         <ul class="submenu active">
         <li class="submenu-item">
-            <a href="" class="submenu-link"
+            <a href="{{route('headMaster.getAllStudents')}}" class="submenu-link"
             >Siswa</a
             >
         </li>
 
         <li class="submenu-item">
-            <a href="" class="submenu-link"
+            <a href="{{route('headMaster.getAllHeadroomTeacher')}}" class="submenu-link"
             >Wali Kelas</a
             >
         </li>
-
+        
         <li class="submenu-item">
             <a href="" class="submenu-link"
             >Guru BK</a
