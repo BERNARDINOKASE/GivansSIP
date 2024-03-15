@@ -70,9 +70,9 @@ Route::controller(headRoomTeacherController::class)
         Route::get('/', 'index')->name('hrTeacher.index');
 
         // Report
-        Route::get('/reports-waiting', 'reportWaiting')->name('hrTeacher.reportsWaiting');
-        Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
-        Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
+        Route::get('/reports', 'report')->name('hrTeacher.reports');
+        // Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
+        // Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
         Route::get('/reports/{id}', 'reportEdit')->name('hrTeacher.editReport');
         Route::patch('/reports/{id}', 'reportUpdate')->name('hrTeacher.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('hrTeacher.reportShow');
