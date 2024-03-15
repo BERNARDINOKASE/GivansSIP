@@ -91,9 +91,10 @@ Route::controller(GuideTeacherController::class)
     ->prefix('/dashboard/guide-teacher/')
     ->group(function () {
         Route::get('/', 'index')->name('guideTeacher.index');
+        Route::get('/new-report', 'newreport')->name('guideTeacher.newreport');
     });
 
-    
+
 // HeadMaster Routes
 Route::controller(HeadMasterController::class)
     ->middleware(['auth', 'role:kepalaSekolah'])
@@ -151,8 +152,6 @@ Route::controller(OffenseController::class)
         Route::get('/offense', 'index')->name('offense.index');
         Route::post('/offense', 'store')->name('offense.store');
         Route::delete('/{id}', 'destroy')->name('offense.delete');
-
-
     });
 
 require __DIR__ . '/auth.php';

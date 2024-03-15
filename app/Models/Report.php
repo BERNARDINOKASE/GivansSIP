@@ -21,8 +21,15 @@ class Report extends Model
         'chronology',
         'evidence',
         'solutions',
-        'notes',
-        'status'
+        'head_room_teacher_notes',
+        'guide_teacher_notes',
+        'affairs_teacher_notes',
+        'head_master_notes',
+        'status',
+        'head_room_teacher_id',
+        'guide_teacher_id',
+        'affairs_teacher_id',
+        'head_master_id'
     ];
 
     /**
