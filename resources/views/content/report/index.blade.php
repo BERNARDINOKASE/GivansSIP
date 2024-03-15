@@ -71,62 +71,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-12">
-            <!--Disabled Backdrop Modal -->
-            <div class="modal modal-lg fade text-left" id="backdrop" tabindex="-1" role="dialog"
-                aria-labelledby="myModalLabel4" data-bs-backdrop="false" aria-hidden="false">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel4">Form Tambah Laporan</h4>
-                            <button type="button" class="close" data-bs-dismiss="modal"
-                                aria-label="Close">
-                                <i data-feather="x"></i>
-                            </button>
-                        </div>
-                        <form method="POST" action="{{route('report.store')}}">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <label for="date_of_incident">Tanggal Kejadian</label>
-                                        <input class="form-control" type="date" name="date_of_incident">
-                                    </div>
-                                    <div class="col-3">
-                                        <label for="offense_id">Kategori Kejadian</label>
-                                        <select class="form-select form-select" name="offense_id">
-                                            <option selected value="">--Kategori Kejadian--</option>
-                                            @foreach ($offense as $item)
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="location_of_incident">Lokasi Kejadian</label>
-                                        <input class="form-control" type="text" name="location_of_incident">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="chronology">Kronologi Kejadian</label>
-                                        <textarea class="form-control" placeholder="Ceritakan kronologi dengan singkat padat dan jelas" name="chronology"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="evidence">Bukti Kejadian</label>
-                                        <input class="form-control" placeholder="Lampirkan bukti" type="string" name="evidence">
-                                    </div>
-                                </div>
-                                {{-- <div class="row">
-                                </div> --}}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary ms-1">
-                                    Simpan
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 @endsection
