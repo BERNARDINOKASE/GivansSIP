@@ -15,9 +15,10 @@ class GuideTeacherController extends Controller
             ->where('head_room_teacher_id', Auth::user()->id)->count();
         return view('content.guideTeacher.index', compact('reportWaiting'));
     }
-    public function newReport()
+    public function report()
     {
         $report = Report::where('head_room_teacher_id', Auth::user()->id)->get();
-        dd($report);
+        // dd($report);
+        return view('content.report.index', compact('report'));
     }
 }
