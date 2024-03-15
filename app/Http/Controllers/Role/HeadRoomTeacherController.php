@@ -67,26 +67,29 @@ class headRoomTeacherController extends Controller
         $report = Report::whereIn('users_id', $student)
             ->where('id', $id)->first();
         $offense = Offense::all();
-
         $reportUserName = DB::table('reports')->select('users_id');
         $userName = User::wherein('id', $reportUserName)->select('id')->first();
+        $guideTeacher = User::where('role', 'guruBk')->get();
+        // dd($guideTeacher);
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'offense', 'userName'));
+        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'offense', 'userName', 'guideTeacher'));
     }
 
     public function reportUpdate(Request $request, $id)
     {
         $request->validate([
             'solutions' => ['nullable'],
-            'notes' => ['nullable'],
-            'status' => ['required']
+            'head_room_teacher_notes' => ['nullable'],
+            'status' => ['required'],
+            'head_room_teacher_id' => ['nullable'],
         ]);
 
         $requestReports = [
             'solutions' => $request->solutions,
-            'notes' => $request->notes,
+            'head_room_teacher_notes' => $request->head_room_teacher_notes,
             'status' => $request->status,
+            'head_room_teacher_id' => $request->head_room_teacher_id
         ];
 
         Report::where('id', $id)->update($requestReports);
