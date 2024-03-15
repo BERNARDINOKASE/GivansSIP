@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText('chronology')->required();
             $table->string('evidence')->required();
             $table->string('solutions', 255)->nullable();
-            $table->text('guide_teacher_notes')->nullable();
+            $table->text('head_room_teacher_notes')->nullable();
             $table->text('guide_teacher_notes')->nullable();
             $table->text('affairs_teacher_notes')->nullable();
             $table->text('head_master_notes')->nullable();
