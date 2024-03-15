@@ -74,10 +74,10 @@
                                         <textarea type="text" class="form-control" name="chronology" readonly>{{$report->chronology}}</textarea>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="notes">Catatan</label>
+                                        <label for="notes">Catatan Wali Kelas</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <textarea type="text" class="form-control" name="notes" >{{$report->notes}}</textarea>
+                                        <textarea type="text" class="form-control" name="head_room_teacher_notes" >{{$report->head_room_teacher_notes}}</textarea>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="solutions">Solusi</label>
@@ -100,11 +100,12 @@
                                         <label for="disposition">Disposisi Pengaduan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <select class="form-control" id="basicSelect">
+                                        <select class="form-control" id="basicSelect" name="head_room_teacher_id">
                                             <option selected value="">--Disposisi Pengaduan--</option>
-                                            <option>IT</option>
-                                            <option>Blade Runner</option>
-                                            <option>Thor Ragnarok</option>
+                                            @foreach ($guideTeacher as $item)
+                                            <option value="{{$item->id}}" >{{$item->full_name}}</option>
+                                            {{-- <option value="" >COBA</option> --}}
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
