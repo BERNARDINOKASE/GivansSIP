@@ -8,9 +8,7 @@
         </a>
     </li>
 
-    <li class="sidebar-item has-sub {{ Request::routeIs('hrTeacher.reportsWaiting*')
-    |Request::routeIs('hrTeacher.reportOnProgress*')
-    |Request::routeIs('hrTeacher.reportSuccess*')?'active':'' }}">
+    <li class="sidebar-item has-sub {{ Request::routeIs('hrTeacher.reports*')}}">
         <a href="#" class="sidebar-link">
         <i class="bi bi-stack"></i>
         <span>Pengaduan</span>
@@ -18,16 +16,8 @@
 
         <ul class="submenu">
     
-            <li class="submenu-item {{ Request::routeIs('hrTeacher.reportsWaiting*')?'active':'' }}">
-                <a href="{{route('hrTeacher.reportsWaiting')}}" class="submenu-link">Pengaduan Belum di Proses</a>
-            </li>
-
-            <li class="submenu-item {{ Request::routeIs('hrTeacher.reportOnProgress*')?'active':'' }}">
-                <a href="{{route('hrTeacher.reportOnProgress')}}" class="submenu-link">Pengaduan Dalam Proses</a>
-            </li>
-
-            <li class="submenu-item {{ Request::routeIs('hrTeacher.reportSuccess*')?'active':'' }}">
-                <a href="{{route('hrTeacher.reportSuccess')}}" class="submenu-link">Pengaduan Selesai</a>
+            <li class="submenu-item {{ Request::routeIs('hrTeacher.reports*')?'active':'' }}">
+                <a href="{{route('hrTeacher.reports')}}" class="submenu-link">Pengaduan</a>
             </li>
         </ul>
     </li>
