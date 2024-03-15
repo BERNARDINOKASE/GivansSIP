@@ -91,7 +91,7 @@ Route::controller(GuideTeacherController::class)
     ->prefix('/dashboard/guide-teacher/')
     ->group(function () {
         Route::get('/', 'index')->name('guideTeacher.index');
-        Route::get('/new-report', 'newreport')->name('guideTeacher.newreport');
+        Route::get('/new-report', 'report')->name('guideTeacher.report');
     });
 
 
