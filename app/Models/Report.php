@@ -22,7 +22,11 @@ class Report extends Model
         'evidence',
         'solutions',
         'notes',
-        'status'
+        'status',
+        'head_room_teacher_id',
+        'guide_teacher_id',
+        'affairs_teacher_id',
+        'head_master_id'
     ];
 
     /**
