@@ -35,31 +35,13 @@ class headRoomTeacherController extends Controller
         return view('content.headRoomTeacher.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
     }
 
-    public function reportWaiting()
+    public function report()
     {
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportWaiting = Report::whereIn('users_id', $student)
-            ->where('status', 'menunggu')->get();
+        $report = Report::whereIn('users_id', $student)->get();
         // dd($reportWaiting);
-        return view('content.headRoomTeacher.report.reportWaiting', compact('reportWaiting'));
+        return view('content.report.index', compact('report'));
     }
-
-    public function reportOnProgress()
-    {
-        $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportOnProgress = Report::whereIn('users_id', $student)
-            ->where('status', 'proses')->get();
-        return view('content.headRoomTeacher.report.reportOnProgress', compact('reportOnProgress'));
-    }
-    public function reportSuccess()
-    {
-        $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportStudentSuccess = Report::whereIn('users_id', $student)
-            ->where('status', 'selesai')->get();
-        // dd($reportStudentSuccess);
-        return view('content.headRoomTeacher.report.reportSuccess', compact('reportStudentSuccess'));
-    }
-
     public function reportEdit($id)
     {
         $student = DB::table('users')->select('id')
