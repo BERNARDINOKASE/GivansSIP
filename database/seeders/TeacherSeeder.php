@@ -43,6 +43,25 @@ class TeacherSeeder extends Seeder
                 'password' => bcrypt('password'),
             ]
         ];
+        $affairsTeacher = [
+            [
+                'full_name' => 'KESISWAAN 1',
+                'class_room_id' => '',
+                'second_id' => '1987652222312312',
+                'gender' => 'male',
+                'email' => 'kesiswaan1@example.com',
+                'role' => 'kesiswaan',
+                'password' => bcrypt('password'),
+            ], [
+                'full_name' => 'KESISWAAN 2',
+                'class_room_id' => '',
+                'second_id' => '197911112312312',
+                'gender' => 'male',
+                'email' => 'kesiswaan2@example.com',
+                'role' => 'kesiswaan',
+                'password' => bcrypt('password'),
+            ]
+        ];
 
         $headMaster = [
             [
@@ -55,6 +74,9 @@ class TeacherSeeder extends Seeder
             ]
         ];
         foreach ($hrTeacher as $key) {
+            User::create($key);
+        }
+        foreach ($affairsTeacher as $key) {
             User::create($key);
         }
         foreach ($gTeacher as $key) {
