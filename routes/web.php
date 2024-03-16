@@ -92,6 +92,7 @@ Route::controller(GuideTeacherController::class)
     ->group(function () {
         Route::get('/', 'index')->name('guideTeacher.index');
         Route::get('/reports', 'report')->name('guideTeacher.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('guideTeacher.reportEdit');
     });
 
 
