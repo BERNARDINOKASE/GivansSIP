@@ -54,7 +54,7 @@ class headRoomTeacherController extends Controller
         // dd($guideTeacher);
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.report.edit', compact('report', 'guideTeacher'));
+        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'guideTeacher'));
     }
 
     public function reportUpdate(Request $request, $id)
@@ -63,22 +63,18 @@ class headRoomTeacherController extends Controller
             'solutions' => ['nullable'],
             'head_room_teacher_notes' => ['nullable'],
             'status' => ['required'],
-            'head_room_teacher_id' => ['nullable'],
+            'guide_teacher_id' => ['nullable'],
         ]);
 
         $requestReports = [
             'solutions' => $request->solutions,
             'head_room_teacher_notes' => $request->head_room_teacher_notes,
             'status' => $request->status,
-            'head_room_teacher_id' => $request->head_room_teacher_id
+            'head_room_teacher_id' => Auth::user()->id,
+            'guide_teacher_id' => $request->guide_teacher_id
         ];
 
         Report::where('id', $id)->update($requestReports);
-        if ($request->status == "proses") {
-            return to_route('hrTeacher.reportOnProgress');
-        } elseif ($request->status == "menunggu") {
-            return to_route('hrTeacher.reportsWaiting');
-        }
         return to_route('hrTeacher.index');
     }
 
