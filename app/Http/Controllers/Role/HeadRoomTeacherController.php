@@ -48,6 +48,7 @@ class headRoomTeacherController extends Controller
             ->where('class_room_id', Auth::user()->class_room_id);
         $report = Report::whereIn('users_id', $student)
             ->where('id', $id)->first();
+        // $offense = Offense::all();
         $reportUserName = DB::table('reports')->select('users_id');
         $guideTeacher = User::where('role', 'guruBk')->get();
         // dd($guideTeacher);
