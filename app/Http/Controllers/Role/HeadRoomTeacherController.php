@@ -86,7 +86,7 @@ class headRoomTeacherController extends Controller
     public function reportShow($reportId)
     {
         $report = Report::where('id', $reportId)->first();
-        return view('content.headRoomTeacher.report.reportShow', compact('report'));
+        return view('content.report.show', compact('report'));
     }
 
     public function reportUserShow($reportId, $userId)
