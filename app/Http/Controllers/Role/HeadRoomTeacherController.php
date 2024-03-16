@@ -48,14 +48,12 @@ class headRoomTeacherController extends Controller
             ->where('class_room_id', Auth::user()->class_room_id);
         $report = Report::whereIn('users_id', $student)
             ->where('id', $id)->first();
-        $offense = Offense::all();
         $reportUserName = DB::table('reports')->select('users_id');
-        $userName = User::wherein('id', $reportUserName)->select('id')->first();
         $guideTeacher = User::where('role', 'guruBk')->get();
         // dd($guideTeacher);
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'offense', 'userName', 'guideTeacher'));
+        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'guideTeacher'));
     }
 
     public function reportUpdate(Request $request, $id)
