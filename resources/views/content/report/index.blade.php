@@ -57,12 +57,35 @@
                                 <td>{{$item->location_of_incident}}</td>
                                 <td>{{$item->evidence}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
+                                    @if ($item->status == "menunggu")
+                                        <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
+                                        @elseif ($item->status == "proses")
+                                        <a href="#" class="btn btn-primary btn-sm">{{$item->status}}</a>
+                                        @elseif ($item->status == "selesai")
+                                        <a href="#" class="btn btn-success btn-sm">{{$item->status}}</a>
+                                    @endif
                                 </td>
                                 <td class="d-lg-inline-flex">
+                                    @if (auth()->user()->role == 'siswa')
                                     <a href="{{route('report.show', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
+                                    @elseif (auth()->user()->role == 'walikelas')
+                                    <a href="{{route('hrTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a>
+                                    <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    @elseif (auth()->user()->role == 'guruBk')
+                                    <a href="{{route('hrTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a>
+                                    <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                        
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
