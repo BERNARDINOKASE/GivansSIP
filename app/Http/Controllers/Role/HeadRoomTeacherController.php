@@ -54,7 +54,7 @@ class headRoomTeacherController extends Controller
         // dd($guideTeacher);
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'guideTeacher'));
+        return view('content.report.edit', compact('report', 'guideTeacher'));
     }
 
     public function reportUpdate(Request $request, $id)
