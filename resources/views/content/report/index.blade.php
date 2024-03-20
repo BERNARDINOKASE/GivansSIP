@@ -44,6 +44,10 @@
                                 <th>Tanggal Kejadian</th>
                                 <th>Lokasi Kejadian</th>
                                 <th>Bukti</th>
+                                <th>Validasi Wali Kelas</th>
+                                <th>Validasi Guru BK</th>
+                                <th>Validasi Kesiswaan</th>
+                                <th>Validasi Kepala Sekolah</th>
                                 <th>Status Laporan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -56,6 +60,22 @@
                                 <td>{{$item->date_of_incident}}</td>
                                 <td>{{$item->location_of_incident}}</td>
                                 <td>{{$item->evidence}}</td>
+                                <td><i class="bi bi-check-circle text-success"></i></td>
+                                @if ($item->guide_teacher_id != null)
+                                    <td><i class="bi bi-check-circle text-success"></i></td>
+                                    @else
+                                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                                @endif
+                                @if ($item->affairs_teacher_id != null)
+                                    <td><i class="bi bi-check-circle text-success"></i></td>
+                                    @else
+                                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                                @endif
+                                @if ($item->head_master_id != null)
+                                    <td><i class="bi bi-check-circle text-success"></i></td>
+                                    @else
+                                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                                @endif
                                 <td>
                                     @if ($item->status == "menunggu")
                                         <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
@@ -66,26 +86,9 @@
                                     @endif
                                 </td>
                                 <td class="d-lg-inline-flex">
-                                    @if (auth()->user()->role == 'siswa')
                                     <a href="{{route('report.show', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
-                                    @elseif (auth()->user()->role == 'walikelas')
-                                    <a href="{{route('hrTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
-                                        <i class="bi bi-info-circle"></i>
-                                    </a>
-                                    <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    @elseif (auth()->user()->role == 'guruBk')
-                                    <a href="" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
-                                        <i class="bi bi-info-circle"></i>
-                                    </a>
-                                    <a href="{{route('guideTeacher.reportEdit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                        
-                                    @endif
                                 </td>
                             </tr>
                         @endforeach
