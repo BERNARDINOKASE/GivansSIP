@@ -79,13 +79,9 @@
                             </div>
                             <div class="col-lg-10 col-9 mt-1">
                                 @if ($report->head_room_teacher_notes == null)
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    Belum ada catatan yang diberikan atau belum pengangan kasus tidak sampai di walikelas        
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau belum pengangan kasus tidak sampai di walikelas</textarea>
                                 @else
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    {{$report->head_room_teacher_notes}}
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->head_room_teacher_notes}}</textarea>
                                 @endif
                             </div>
                             <div class="col-lg-2 col-3">
@@ -93,13 +89,9 @@
                             </div>
                             <div class="col-lg-10 col-9 mt-1">
                                 @if ($report->guide_teacher_notes == null)
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru Bimbingan Konseling        
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru Bimbingan Konseling        </textarea>
                                 @else
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    {{$report->guide_teacher_notes}}
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->guide_teacher_notes}}</textarea>
                                 @endif
                             </div>
                             <div class="col-lg-2 col-3">
@@ -107,13 +99,9 @@
                             </div>
                             <div class="col-lg-10 col-9 mt-1">
                                 @if ($report->affairs_teacher_notes == null)
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru kesiswaan
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru kesiswaan</textarea>
                                 @else
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    {{$report->affairs_teacher_notes}}
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->affairs_teacher_notes}}</textarea>
                                 @endif
                             </div>
                             <div class="col-lg-2 col-3">
@@ -121,13 +109,9 @@
                             </div>
                             <div class="col-lg-10 col-9 mt-1">
                                 @if ($report->head_master_notes == null)
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di Kepala Sekolah
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di Kepala Sekolah</textarea>
                                 @else
-                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>
-                                    {{$report->head_master_notes}}
-                                </textarea>
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->head_master_notes}}</textarea>
                                 @endif
                             </div>
                         </div>
@@ -136,7 +120,7 @@
                                 <label class="col-form-label" for="solutions">Solusi</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <textarea type="text" id="solutions" class="form-control" name="solutions" value="{{$report->solutions}}" readonly></textarea>
+                                <textarea type="text" id="solutions" class="form-control" name="solutions" readonly>{{$report->solutions}}</textarea>
                             </div>
                         </div>
                     </div>
