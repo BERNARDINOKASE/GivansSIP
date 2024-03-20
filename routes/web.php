@@ -93,6 +93,8 @@ Route::controller(GuideTeacherController::class)
         Route::get('/', 'index')->name('guideTeacher.index');
         Route::get('/reports', 'report')->name('guideTeacher.report');
         Route::get('/reports/{id}', 'reportEdit')->name('guideTeacher.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('guideTeacher.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('guideTeacher.reportShow');
     });
 
 
