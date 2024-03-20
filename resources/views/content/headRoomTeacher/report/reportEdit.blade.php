@@ -100,11 +100,10 @@
                                         <label for="disposition">Disposisi Pengaduan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <select class="form-control" id="basicSelect" name="head_room_teacher_id">
+                                        <select class="form-control" id="basicSelect" name="guide_teacher_id">
                                             <option selected value="">--Disposisi Pengaduan--</option>
                                             @foreach ($guideTeacher as $item)
                                             <option value="{{$item->id}}" >{{$item->full_name}}</option>
-                                            {{-- <option value="" >COBA</option> --}}
                                             @endforeach
                                         </select>
                                     </div>

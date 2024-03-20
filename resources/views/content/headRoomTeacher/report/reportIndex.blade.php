@@ -44,6 +44,7 @@
                                 <th>Tanggal Kejadian</th>
                                 <th>Lokasi Kejadian</th>
                                 <th>Bukti</th>
+                                <th>Disposisi Wali Kelas</th>
                                 <th>Disposisi Guru BK</th>
                                 <th>Disposisi Kesiswaan</th>
                                 <th>Disposisi Kepala Sekolah</th>
@@ -59,6 +60,7 @@
                                 <td>{{$item->date_of_incident}}</td>
                                 <td>{{$item->location_of_incident}}</td>
                                 <td>{{$item->evidence}}</td>
+                                <td><i class="bi bi-check-circle text-success"></i></td>
                                 @if ($item->guide_teacher_id != null)
                                     <td><i class="bi bi-check-circle text-success"></i></td>
                                     @else
@@ -84,25 +86,13 @@
                                     @endif
                                 </td>
                                 <td class="d-lg-inline-flex">
-                                    @if (auth()->user()->role == 'siswa')
-                                    <a href="{{route('report.show', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
-                                        <i class="bi bi-info-circle"></i>
-                                    </a>
-                                    @elseif (auth()->user()->role == 'walikelas')
                                     <a href="{{route('hrTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
+                                    @if ($item->guide_teacher_id == null)
                                     <a href="{{route('hrTeacher.editReport', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                         <i class="bi bi-pencil"></i>
-                                    </a>
-                                    @elseif (auth()->user()->role == 'guruBk')
-                                    <a href="" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
-                                        <i class="bi bi-info-circle"></i>
-                                    </a>
-                                    <a href="{{route('guideTeacher.reportEdit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                        
+                                    </a>                                        
                                     @endif
                                 </td>
                             </tr>

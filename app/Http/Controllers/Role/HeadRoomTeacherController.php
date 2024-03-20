@@ -40,7 +40,7 @@ class headRoomTeacherController extends Controller
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
         $report = Report::whereIn('users_id', $student)->get();
         // dd($reportWaiting);
-        return view('content.report.index', compact('report'));
+        return view('content.headRoomTeacher.report.reportIndex', compact('report'));
     }
     public function reportEdit($id)
     {
@@ -81,7 +81,7 @@ class headRoomTeacherController extends Controller
     public function reportShow($reportId)
     {
         $report = Report::where('id', $reportId)->first();
-        return view('content.report.show', compact('report'));
+        return view('content.headRoomTeacher.report.reportShow', compact('report'));
     }
 
     public function reportUserShow($reportId, $userId)
