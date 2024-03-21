@@ -15,8 +15,8 @@
         </a>
 
         <ul class="submenu">
-            <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">
-                <a href="" class="submenu-link">Pengaduan</a>
+            <li class="submenu-item {{ Request::routeIs('affairsTeacher.report*')?'active':'' }}">
+                <a href="{{route('affairsTeacher.report')}}" class="submenu-link">Pengaduan</a>
             </li>
         </ul>
     </li>

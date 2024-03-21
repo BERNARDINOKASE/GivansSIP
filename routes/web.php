@@ -104,10 +104,10 @@ Route::controller(AffairsTeacherController::class)
     ->prefix('/dashboard/affairs-teacher/')
     ->group(function () {
         Route::get('/', 'index')->name('affairsTeacher.index');
-        // Route::get('/reports', 'report')->name('guideTeacher.report');
-        // Route::get('/reports/{id}', 'reportEdit')->name('guideTeacher.reportEdit');
-        // Route::patch('/reports/{id}', 'reportUpdate')->name('guideTeacher.reportUpdate');
-        // Route::get('/reports={reportId}', 'reportShow')->name('guideTeacher.reportShow');
+        Route::get('/reports', 'report')->name('affairsTeacher.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('affairsTeacher.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('affairsTeacher.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('affairsTeacher.reportShow');
     });
 
 
