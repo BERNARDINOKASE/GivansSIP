@@ -83,7 +83,7 @@
                                     <a href="{{route('guideTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
-                                    @if ($item->affairs_teacher_id == null)
+                                    @if ($item->guide_teacher_id == null && $item->status != "selesai")
                                     <a href="{{route('guideTeacher.reportEdit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>                                        
