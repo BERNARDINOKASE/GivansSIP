@@ -61,7 +61,7 @@ class HeadMasterController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('headMaster.index');
+        return to_route('headMaster.report');
     }
 
     public function reportShow($reportId)

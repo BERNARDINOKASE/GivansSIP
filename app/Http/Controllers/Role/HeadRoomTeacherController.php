@@ -75,7 +75,7 @@ class headRoomTeacherController extends Controller
         ];
 
         Report::where('id', $id)->update($requestReports);
-        return to_route('hrTeacher.index');
+        return to_route('hrTeacher.reports');
     }
 
     public function reportShow($reportId)

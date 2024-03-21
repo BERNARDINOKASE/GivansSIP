@@ -53,7 +53,7 @@ class AffairsTeacherController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('affairsTeacher.index');
+        return to_route('affairsTeacher.report');
     }
 
     public function reportShow($reportId)

@@ -54,7 +54,7 @@ class GuideTeacherController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('guideTeacher.index');
+        return to_route('guideTeacher.report');
     }
 
     public function reportShow($reportId)
