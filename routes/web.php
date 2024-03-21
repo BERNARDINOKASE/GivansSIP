@@ -14,6 +14,7 @@ use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
 use App\Http\Controllers\OffenseController;
+use App\Http\Controllers\Role\AffairsTeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,19 @@ Route::controller(GuideTeacherController::class)
         Route::patch('/reports/{id}', 'reportUpdate')->name('guideTeacher.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('guideTeacher.reportShow');
     });
+
+// Affairs Teacher 
+Route::controller(AffairsTeacherController::class)
+    ->middleware(['auth', 'role:kesiswaan'])
+    ->prefix('/dashboard/affairs-teacher/')
+    ->group(function () {
+        Route::get('/', 'index')->name('affairsTeacher.index');
+        // Route::get('/reports', 'report')->name('guideTeacher.report');
+        // Route::get('/reports/{id}', 'reportEdit')->name('guideTeacher.reportEdit');
+        // Route::patch('/reports/{id}', 'reportUpdate')->name('guideTeacher.reportUpdate');
+        // Route::get('/reports={reportId}', 'reportShow')->name('guideTeacher.reportShow');
+    });
+
 
 
 // HeadMaster Routes

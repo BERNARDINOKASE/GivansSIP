@@ -118,6 +118,8 @@
                             @include('layouts.headRoomTeacher.sidebar')
                         @elseif (auth()->user()->role == 'guruBk')
                             @include('layouts.guideTeacher.sidebar')
+                        @elseif (auth()->user()->role == 'kesiswaan')
+                            @include('layouts.affairsTeacher.sidebar')
                         @elseif(auth()->user()->role == 'kepalaSekolah')
                             @include('layouts.headMaster.sidebar')
                         @endif
