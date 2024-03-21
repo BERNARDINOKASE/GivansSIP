@@ -119,6 +119,10 @@ Route::controller(HeadMasterController::class)
     ->group(function () {
         Route::get('/', 'index')->name('headMaster.index');
         Route::get('/kritik-dan-saran', 'getAllcriticAndSuggest')->name('headMaster.getAllcriticAndSuggest');
+        Route::get('/reports', 'report')->name('headMaster.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('headMaster.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('headMaster.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('headMaster.reportShow');
     });
 
 Route::get('/dashboard', function () {
