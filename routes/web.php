@@ -158,7 +158,7 @@ Route::controller(ReportController::class)
         Route::post('/', 'store')->name('report.store');
         Route::get('/edit/{id}', 'edit')->name('report.edit');
         Route::put('/{id}', 'update')->name('report.update');
-        Route::get('/{id}', 'show')->name('report.show');
+        Route::get('/id={id}', 'show')->name('report.show');
         Route::delete('/{id}', 'destroy')->name('report.delete');
     });
 
