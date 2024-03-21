@@ -44,10 +44,6 @@
                                 <th>Tanggal Kejadian</th>
                                 <th>Lokasi Kejadian</th>
                                 <th>Bukti</th>
-                                <th>Disposisi Wali Kelas</th>
-                                <th>Disposisi Guru BK</th>
-                                <th>Disposisi Kesiswaan</th>
-                                <th>Disposisi Kepala Sekolah</th>
                                 <th>Status Laporan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -60,32 +56,30 @@
                                 <td>{{$item->date_of_incident}}</td>
                                 <td>{{$item->location_of_incident}}</td>
                                 <td>{{$item->evidence}}</td>
-                                <td><i class="bi bi-check-circle text-success"></i></td>
-                                @if ($item->guide_teacher_id != null)
-                                    <td><i class="bi bi-check-circle text-success"></i></td>
-                                    @else
-                                    <td><i class="bi bi-x-circle text-danger"></i></td>
-                                @endif
-                                @if ($item->affairs_teacher_id != null)
-                                    <td><i class="bi bi-check-circle text-success"></i></td>
-                                    @else
-                                    <td><i class="bi bi-x-circle text-danger"></i></td>
-                                @endif
-                                @if ($item->head_master_id != null)
-                                    <td><i class="bi bi-check-circle text-success"></i></td>
-                                    @else
-                                    <td><i class="bi bi-x-circle text-danger"></i></td>
-                                @endif
                                 <td>
                                     @if ($item->status == "menunggu")
-                                        <a href="#" class="btn btn-warning btn-sm">{{$item->status}}</a>
+                                        <a href="#" class="badge bg-light-warning w-100">{{$item->status}}</a>
                                         @elseif ($item->status == "proses")
-                                        <a href="#" class="btn btn-primary btn-sm">{{$item->status}}</a>
+                                        <a href="#" class="badge bg-light-info w-100">
+                                            Proses <br>
+                                            @if ($item->head_room_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Wali Kelas</i><br>
+                                            @endif
+                                            @if ($item->guide_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Guru Bk</i><br>
+                                            @endif
+                                            @if ($item->affairs_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Kesiswaan</i><br>
+                                            @endif
+                                            @if ($item->head_master_id != null)
+                                            <i class="bi bi-arrow-right">Kepala Sekolah</i>
+                                            @endif
+                                        </a>
                                         @elseif ($item->status == "selesai")
-                                        <a href="#" class="btn btn-success btn-sm">{{$item->status}}</a>
-                                    @endif
+                                        <a href="#" class="badge bg-success w-100">{{$item->status}}</a>
+                                    @endif 
                                 </td>
-                                <td class="d-lg-inline-flex">
+                                <td class="d-table-cell justify-content-center align-items-center">
                                     <a href="{{route('affairsTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
