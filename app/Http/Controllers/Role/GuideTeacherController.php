@@ -14,8 +14,8 @@ class GuideTeacherController extends Controller
 {
     public function index()
     {
-        $reportWaiting = Report::where('status', 'menunggu')
-            ->where('head_room_teacher_id', Auth::user()->id)->count();
+        $reportWaiting = Report::where('status', 'proses')
+            ->where('guide_teacher_id', Auth::user()->id)->count();
         return view('content.guideTeacher.index', compact('reportWaiting'));
     }
     public function report()
