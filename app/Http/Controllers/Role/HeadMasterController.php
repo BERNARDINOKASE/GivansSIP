@@ -26,6 +26,7 @@ class HeadMasterController extends Controller
         // dd($data);
         return view('content.headMaster.criticAndSuggest.getAllCriticAndSuggest', compact('data'));
     }
+
     public function report()
     {
         $report = Report::where('head_master_id', Auth::user()->id)->get();
@@ -69,5 +70,18 @@ class HeadMasterController extends Controller
         $report = Report::where('id', $reportId)->first();
         // dd($report);
         return view('content.headMaster.report.reportShow', compact('report'));
+    }
+
+    public function getAllHeadroomTeacher()
+    {
+        $data = User::where('role','walikelas')->get();
+        return view('content.headMaster.headRoomTeacher.getAllHeadroomTeacher', compact('data'));
+    }
+
+    public function getAllStudents()
+    {
+        $data = User::where('role','siswa')->get();
+        return view('content.headMaster.student.getAllStudents', compact('data'));
+
     }
 }
