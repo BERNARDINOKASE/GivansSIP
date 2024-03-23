@@ -75,18 +75,52 @@
                         </div>
                         <div class="form-group row align-items-center">
                             <div class="col-lg-2 col-3">
-                                <label class="col-form-label" for="solutions">Solusi</label>
+                                <label class="col-form-label" for="notes">Catatan Wali Kelas</label>
                             </div>
-                            <div class="col-lg-10 col-9">
-                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->solutions}}" readonly>
+                            <div class="col-lg-10 col-9 mt-1">
+                                @if ($report->head_room_teacher_notes == null)
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau belum pengangan kasus tidak sampai di walikelas</textarea>
+                                @else
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->head_room_teacher_notes}}</textarea>
+                                @endif
+                            </div>
+                            <div class="col-lg-2 col-3">
+                                <label class="col-form-label" for="notes">Catatan Guru Bimbingan Konseling</label>
+                            </div>
+                            <div class="col-lg-10 col-9 mt-1">
+                                @if ($report->guide_teacher_notes == null)
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru Bimbingan Konseling        </textarea>
+                                @else
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->guide_teacher_notes}}</textarea>
+                                @endif
+                            </div>
+                            <div class="col-lg-2 col-3">
+                                <label class="col-form-label" for="notes">Catatan Guru Kesiswaan</label>
+                            </div>
+                            <div class="col-lg-10 col-9 mt-1">
+                                @if ($report->affairs_teacher_notes == null)
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di guru kesiswaan</textarea>
+                                @else
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->affairs_teacher_notes}}</textarea>
+                                @endif
+                            </div>
+                            <div class="col-lg-2 col-3">
+                                <label class="col-form-label" for="notes">Catatan Kepala Sekolah</label>
+                            </div>
+                            <div class="col-lg-10 col-9 mt-1">
+                                @if ($report->head_master_notes == null)
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>Belum ada catatan yang diberikan atau pengangan kasus tidak sampai di Kepala Sekolah</textarea>
+                                @else
+                                <textarea type="text" id="notes" class="form-control" name="notes" readonly>{{$report->head_master_notes}}</textarea>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
                             <div class="col-lg-2 col-3">
-                                <label class="col-form-label" for="notes">Catatan</label>
+                                <label class="col-form-label" for="solutions">Solusi</label>
                             </div>
                             <div class="col-lg-10 col-9">
-                                <input type="text" id="notes" class="form-control" name="notes" value="{{$report->notes}}" readonly>
+                                <input type="text" id="location_of_incident" class="form-control" name="location_of_incident" value="{{$report->solutions}}" readonly>
                             </div>
                         </div>
                     </div>

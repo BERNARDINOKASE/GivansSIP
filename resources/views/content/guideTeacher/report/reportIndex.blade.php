@@ -44,10 +44,6 @@
                                 <th>Tanggal Kejadian</th>
                                 <th>Lokasi Kejadian</th>
                                 <th>Bukti</th>
-                                {{-- <th>Validasi Wali Kelas</th>
-                                <th>Validasi Guru BK</th>
-                                <th>Validasi Kesiswaan</th>
-                                <th>Validasi Kepala Sekolah</th> --}}
                                 <th>Status Laporan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -81,12 +77,17 @@
                                         </a>
                                         @elseif ($item->status == "selesai")
                                         <a href="#" class="badge bg-success w-100">{{$item->status}}</a>
-                                    @endif
+                                    @endif 
                                 </td>
                                 <td class="d-table-cell justify-content-center align-items-center">
-                                    <a href="{{route('report.show', $item->id)}}" class="m-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
+                                    <a href="{{route('guideTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
+                                    @if ($item->guide_teacher_id == null && $item->status != "selesai")
+                                    <a href="{{route('guideTeacher.reportEdit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>                                        
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

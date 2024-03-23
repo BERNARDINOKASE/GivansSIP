@@ -50,6 +50,9 @@ class AuthenticateController extends Controller
             if (Auth::user()->role == 'walikelas') {
                 return to_route('hrTeacher.index');
             }
+            if (Auth::user()->role == 'kesiswaan') {
+                return to_route('affairsTeacher.index');
+            }
             if (Auth::user()->role == 'guruBk') {
                 return to_route('guideTeacher.index');
             }

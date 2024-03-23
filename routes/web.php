@@ -14,6 +14,7 @@ use App\Http\Controllers\Role\headRoomTeacherController;
 use App\Http\Controllers\Role\HeadRoomTeacher;
 use App\Http\Controllers\Role\StudentController;
 use App\Http\Controllers\OffenseController;
+use App\Http\Controllers\Role\AffairsTeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,9 +71,9 @@ Route::controller(headRoomTeacherController::class)
         Route::get('/', 'index')->name('hrTeacher.index');
 
         // Report
-        Route::get('/reports-waiting', 'reportWaiting')->name('hrTeacher.reportsWaiting');
-        Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
-        Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
+        Route::get('/reports', 'report')->name('hrTeacher.reports');
+        // Route::get('/reports-on-progres', 'reportOnProgress')->name('hrTeacher.reportOnProgress');
+        // Route::get('/reports-success', 'reportSuccess')->name('hrTeacher.reportSuccess');
         Route::get('/reports/{id}', 'reportEdit')->name('hrTeacher.editReport');
         Route::patch('/reports/{id}', 'reportUpdate')->name('hrTeacher.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('hrTeacher.reportShow');
@@ -91,8 +92,24 @@ Route::controller(GuideTeacherController::class)
     ->prefix('/dashboard/guide-teacher/')
     ->group(function () {
         Route::get('/', 'index')->name('guideTeacher.index');
-        Route::get('/new-report', 'newreport')->name('guideTeacher.newreport');
+        Route::get('/reports', 'report')->name('guideTeacher.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('guideTeacher.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('guideTeacher.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('guideTeacher.reportShow');
     });
+
+// Affairs Teacher 
+Route::controller(AffairsTeacherController::class)
+    ->middleware(['auth', 'role:kesiswaan'])
+    ->prefix('/dashboard/affairs-teacher/')
+    ->group(function () {
+        Route::get('/', 'index')->name('affairsTeacher.index');
+        Route::get('/reports', 'report')->name('affairsTeacher.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('affairsTeacher.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('affairsTeacher.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('affairsTeacher.reportShow');
+    });
+
 
 
 // HeadMaster Routes
@@ -102,8 +119,13 @@ Route::controller(HeadMasterController::class)
     ->group(function () {
         Route::get('/', 'index')->name('headMaster.index');
         Route::get('/kritik-dan-saran', 'getAllcriticAndSuggest')->name('headMaster.getAllcriticAndSuggest');
+        Route::get('/reports', 'report')->name('headMaster.report');
+        Route::get('/reports/{id}', 'reportEdit')->name('headMaster.reportEdit');
+        Route::patch('/reports/{id}', 'reportUpdate')->name('headMaster.reportUpdate');
+        Route::get('/reports={reportId}', 'reportShow')->name('headMaster.reportShow');
         Route::get('/Wali-Kelas','getAllHeadroomTeacher')->name('headMaster.getAllHeadroomTeacher');
         Route::get('/siswa','getAllStudents')->name('headMaster.getAllStudents');
+
 
     });
 
@@ -140,7 +162,7 @@ Route::controller(ReportController::class)
         Route::post('/', 'store')->name('report.store');
         Route::get('/edit/{id}', 'edit')->name('report.edit');
         Route::put('/{id}', 'update')->name('report.update');
-        Route::get('/{id}', 'show')->name('report.show');
+        Route::get('/id={id}', 'show')->name('report.show');
         Route::delete('/{id}', 'destroy')->name('report.delete');
     });
 

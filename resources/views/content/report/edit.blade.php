@@ -20,7 +20,7 @@
                             <a href="">Laporan</a>
                         </li>
                     </ol>
-                </nav>
+                </nav>  
             </div>
         </div>
     </div>
@@ -37,17 +37,18 @@
                         <div class="mb-2">
                             <div class="col-12">
                                 <div class="">
-                                    <label for="date_of_incident">Tanggal</label>
+                                    <label for="date_of_incident">Tanggal Kejadian</label>
                                     <input class="form-control" type="date" name="date_of_incident" value="{{$report->date_of_incident}}">
                                 </div>
                                 <div class="">
                                     <label for="offense_id">Kategori Kejadian</label>
-                                    <select class="form-select form-select" name="offense_id">
+                                    <input class="form-control" type="text" name="offense_id" value="{{$report->offense->name}}">
+                                    {{-- <select class="form-select form-select" name="offense_id">
                                         <option selected value="">--Kategori Kejadian--</option>
                                         @foreach ($offense as $item)
                                             <option value="{{$item->id}}" {{ ($item->id == $report->offense->id)? "selected" : "" }}>{{$item->name}}</option>
                                         @endforeach
-                                    </select>
+                                    </select> --}}
                                 </div>
                                 <div class="">
                                     <label for="location_of_incident">Lokasi Kejadian</label>

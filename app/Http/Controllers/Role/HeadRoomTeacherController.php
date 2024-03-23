@@ -35,45 +35,26 @@ class headRoomTeacherController extends Controller
         return view('content.headRoomTeacher.index', compact('studentCount', 'reportStudentWaiting', 'reportStudentSuccess', 'reportStudentOnProgress'));
     }
 
-    public function reportWaiting()
+    public function report()
     {
         $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportWaiting = Report::whereIn('users_id', $student)
-            ->where('status', 'menunggu')->get();
+        $report = Report::whereIn('users_id', $student)->get();
         // dd($reportWaiting);
-        return view('content.headRoomTeacher.report.reportWaiting', compact('reportWaiting'));
+        return view('content.headRoomTeacher.report.reportIndex', compact('report'));
     }
-
-    public function reportOnProgress()
-    {
-        $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportOnProgress = Report::whereIn('users_id', $student)
-            ->where('status', 'proses')->get();
-        return view('content.headRoomTeacher.report.reportOnProgress', compact('reportOnProgress'));
-    }
-    public function reportSuccess()
-    {
-        $student = DB::table('users')->select('id')->where('class_room_id', Auth::user()->class_room_id);
-        $reportStudentSuccess = Report::whereIn('users_id', $student)
-            ->where('status', 'selesai')->get();
-        // dd($reportStudentSuccess);
-        return view('content.headRoomTeacher.report.reportSuccess', compact('reportStudentSuccess'));
-    }
-
     public function reportEdit($id)
     {
         $student = DB::table('users')->select('id')
             ->where('class_room_id', Auth::user()->class_room_id);
         $report = Report::whereIn('users_id', $student)
             ->where('id', $id)->first();
-        $offense = Offense::all();
+        // $offense = Offense::all();
         $reportUserName = DB::table('reports')->select('users_id');
-        $userName = User::wherein('id', $reportUserName)->select('id')->first();
         $guideTeacher = User::where('role', 'guruBk')->get();
         // dd($guideTeacher);
         // $full_name = User::select('full_name')->where('id', $userName)->get();
         // dd($full_name);
-        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'offense', 'userName', 'guideTeacher'));
+        return view('content.headRoomTeacher.report.reportEdit', compact('report', 'guideTeacher'));
     }
 
     public function reportUpdate(Request $request, $id)
@@ -82,23 +63,19 @@ class headRoomTeacherController extends Controller
             'solutions' => ['nullable'],
             'head_room_teacher_notes' => ['nullable'],
             'status' => ['required'],
-            'head_room_teacher_id' => ['nullable'],
+            'guide_teacher_id' => ['nullable'],
         ]);
 
         $requestReports = [
             'solutions' => $request->solutions,
             'head_room_teacher_notes' => $request->head_room_teacher_notes,
             'status' => $request->status,
-            'head_room_teacher_id' => $request->head_room_teacher_id
+            'head_room_teacher_id' => Auth::user()->id,
+            'guide_teacher_id' => $request->guide_teacher_id
         ];
 
         Report::where('id', $id)->update($requestReports);
-        if ($request->status == "proses") {
-            return to_route('hrTeacher.reportOnProgress');
-        } elseif ($request->status == "menunggu") {
-            return to_route('hrTeacher.reportsWaiting');
-        }
-        return to_route('hrTeacher.index');
+        return to_route('hrTeacher.reports');
     }
 
     public function reportShow($reportId)

@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal"  method="POST" action="{{route('hrTeacher.reportUpdate', $report->id)}}">
+                        <form class="form form-horizontal"  method="POST" action="{{route('affairsTeacher.reportUpdate', $report->id)}}">
                             @method('PATCH')
                             @csrf
                             <div class="form-body">
@@ -77,7 +77,19 @@
                                         <label for="notes">Catatan Wali Kelas</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <textarea type="text" class="form-control" name="head_room_teacher_notes" >{{$report->head_room_teacher_notes}}</textarea>
+                                        <textarea type="text" class="form-control" name="head_room_teacher_notes" readonly >{{$report->head_room_teacher_notes}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="notes">Catatan Guru Bimbingan Konseling</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea type="text" class="form-control" name="guide_teacher_notes" readonly>{{$report->guide_teacher_notes}}</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="notes">Catatan Guru Kesiswaan</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea type="text" class="form-control" name="affairs_teacher_notes">{{$report->affairs_teacher_notes}}</textarea>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="solutions">Solusi</label>
@@ -100,9 +112,9 @@
                                         <label for="disposition">Disposisi Pengaduan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <select class="form-control" id="basicSelect" name="guide_teacher_id">
+                                        <select class="form-control" id="basicSelect" name="head_master_id">
                                             <option selected value="">--Disposisi Pengaduan--</option>
-                                            @foreach ($guideTeacher as $item)
+                                            @foreach ($headMaster as $item)
                                             <option value="{{$item->id}}" >{{$item->full_name}}</option>
                                             @endforeach
                                         </select>

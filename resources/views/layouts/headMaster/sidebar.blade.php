@@ -21,8 +21,8 @@
                 <a href="{{route('headMaster.getAllcriticAndSuggest')}}" class="submenu-link">Data Kritik dan Saran</a>
             </li>
 
-            <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">
-                <a href="" class="submenu-link">Data Laporan</a>
+            <li class="submenu-item {{ Request::routeIs('headMaster.report*')?'active':'' }}">
+                <a href="{{route('headMaster.report')}}" class="submenu-link">Data Pengaduan</a>
             </li>
         </ul>
     </li>

@@ -8,34 +8,16 @@
         </a>
     </li>
 
-    <li class="sidebar-item has-sub {{ Request::routeIs('*')
-    |Request::routeIs('*')
-    |Request::routeIs('*')?'active':'' }}">
+    <li class="sidebar-item has-sub {{ Request::routeIs('guideTeacher.report*')}}">
         <a href="#" class="sidebar-link">
         <i class="bi bi-stack"></i>
         <span>Pengaduan</span>
         </a>
 
         <ul class="submenu">
-    
-            <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">
-                <a href="" class="submenu-link">Pengaduan Belum di Proses</a>
-            </li>
-
-            <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">
-                <a href="" class="submenu-link">Pengaduan Dalam Proses</a>
-            </li>
-
-            <li class="submenu-item {{ Request::routeIs('*')?'active':'' }}">
-                <a href="" class="submenu-link">Pengaduan Selesai</a>
+            <li class="submenu-item {{ Request::routeIs('guideTeacher.report*')?'active':'' }}">
+                <a href="{{route('guideTeacher.report')}}" class="submenu-link">Pengaduan</a>
             </li>
         </ul>
-    </li>
-
-    <li class="sidebar-item {{ Request::routeIs('*')?'active':'' }}">
-        <a href="" class="sidebar-link">
-        <i class="bi bi-house-door-fill"></i>
-        <span>Siswa</span>
-        </a>
     </li>
 </ul>
