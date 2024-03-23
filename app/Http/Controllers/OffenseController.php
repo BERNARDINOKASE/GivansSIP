@@ -18,7 +18,10 @@ class OffenseController extends Controller
     {
         $data = $request ->validate([
             'name'=> 'required|min:5'
-        ]);
+            ], [
+                'name.required' => 'Nama kasus harus di isi',
+                'name.min' => 'Nama kasus harus memiliki minimal 5 karakter',
+            ]);
         Offense::create($data);
         return back()->with('success','Kasus Berhasil Ditambahkan');
         
