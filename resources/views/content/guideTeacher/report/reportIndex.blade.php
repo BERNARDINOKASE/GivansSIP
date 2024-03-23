@@ -26,6 +26,12 @@
                     </ol>
                 </nav>
             </div>
+            @if (session ('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session ('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         </div>
     </div>
     {{-- <button class="btn btn-md btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#backdrop">Tambah Laporan</button> --}}
@@ -58,18 +64,32 @@
                                 <td>{{$item->evidence}}</td>
                                 <td>
                                     @if ($item->status == "menunggu")
-                                        <a href="#" class="badge bg-light-warning w-100">{{$item->status}}</a>
-                                        @elseif ($item->status == "proses")
-                                        <a href="#" class="badge bg-light-info w-100">
-                                            Proses <br>
+                                        <a href="#" class="badge bg-light-warning w-100">
+                                            Menunggu <br>
                                             @if ($item->head_room_teacher_id != null)
-                                            <i class="bi bi-arrow-right">Wali Kelas</i><br>
+                                            <i class="bi bi-arrow-right">Wali Kelas</i>
                                             @endif
                                             @if ($item->guide_teacher_id != null)
                                             <i class="bi bi-arrow-right">Guru Bk</i><br>
                                             @endif
                                             @if ($item->affairs_teacher_id != null)
-                                            <i class="bi bi-arrow-right">Kesiswaan</i><br>
+                                            <i class="bi bi-arrow-right">Kesiswaan</i>
+                                            @endif
+                                            @if ($item->head_master_id != null)
+                                            <i class="bi bi-arrow-right">Kepala Sekolah</i>
+                                            @endif
+                                        </a>
+                                        @elseif ($item->status == "proses")
+                                        <a href="#" class="badge bg-light-info w-100">
+                                            Proses <br>
+                                            @if ($item->head_room_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Wali Kelas</i>
+                                            @endif
+                                            @if ($item->guide_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Guru Bk</i><br>
+                                            @endif
+                                            @if ($item->affairs_teacher_id != null)
+                                            <i class="bi bi-arrow-right">Kesiswaan</i>
                                             @endif
                                             @if ($item->head_master_id != null)
                                             <i class="bi bi-arrow-right">Kepala Sekolah</i>
@@ -77,13 +97,13 @@
                                         </a>
                                         @elseif ($item->status == "selesai")
                                         <a href="#" class="badge bg-success w-100">{{$item->status}}</a>
-                                    @endif 
+                                    @endif
                                 </td>
                                 <td class="d-table-cell justify-content-center align-items-center">
                                     <a href="{{route('guideTeacher.reportShow', $item->id)}}" class="ms-1 btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat detail">
                                         <i class="bi bi-info-circle"></i>
                                     </a>
-                                    @if ($item->guide_teacher_id == null && $item->status != "selesai")
+                                    @if ($item->affairs_teacher_id == null && $item->status != "selesai")
                                     <a href="{{route('guideTeacher.reportEdit', $item->id)}}" class="ms-1 btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>                                        

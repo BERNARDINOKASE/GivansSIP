@@ -37,9 +37,12 @@ class AffairsTeacherController extends Controller
     {
         $request->validate([
             'solutions' => ['nullable'],
-            'affairs_teacher_notes' => ['nullable'],
+            'affairs_teacher_notes' => ['required', 'min:10'],
             'status' => ['required'],
             'head_master_teacher_id' => ['nullable'],
+        ], [
+            'affairs_teacher_notes.required' => 'Catatan guru kesiswaan wajib diisi',
+            'affairs_teacher_notes.min' => 'Catatan guru kesiswaan wajib diisi minimal 10 karakter'
         ]);
 
         $requestReports = [
@@ -53,7 +56,7 @@ class AffairsTeacherController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('affairsTeacher.report');
+        return to_route('affairsTeacher.report')->with('success', 'Pengaduan berhasil di proses.');
     }
 
     public function reportShow($reportId)
