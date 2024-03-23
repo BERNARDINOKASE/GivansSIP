@@ -38,7 +38,7 @@
                                 <div class="col-md-3 col-12">
                                     <div class="form-group">
                                         <label for="date_of_incident">Tanggal Kejadian</label>
-                                        <input type="date" id="date_of_incident" class="form-control" name="date_of_incident">
+                                        <input type="date" id="date_of_incident" class="form-control" name="date_of_incident" value="{{old('date_of_incident')}}">
                                         @if ($errors->has('date_of_incident'))
                                             <span class="text-danger">{{$errors->first('date_of_incident')}}</span>
                                         @endif
@@ -61,7 +61,7 @@
                                 <div class="col-md-3 col-12">
                                     <div class="form-group">
                                         <label for="location_of_incident">Lokasi Kejadian</label>
-                                        <input type="text" id="location_of_incident" class="form-control" placeholder="Lokasi Kejadian" name="location_of_incident">
+                                        <input type="text" id="location_of_incident" class="form-control" placeholder="Lokasi Kejadian" name="location_of_incident" value="{{old('location_of_incident')}}">
                                         @if ($errors->has('location_of_incident'))
                                             <span class="text-danger">{{$errors->first('location_of_incident')}}</span>
                                         @endif
@@ -70,7 +70,7 @@
                                 <div class="col-md-3 col-12">
                                     <div class="form-group">
                                         <label for="evidence">Bukti Kejadian</label>
-                                        <input type="text" id="evidence" class="form-control" name="evidence" placeholder="Bukti Kejadian">
+                                        <input type="text" id="evidence" class="form-control" name="evidence" placeholder="Bukti Kejadian" value="{{old('evidence')}}">
                                         @if ($errors->has('evidence'))
                                             <span class="text-danger">{{$errors->first('evidence')}}</span>
                                         @endif
@@ -79,7 +79,7 @@
                                 <div class="col-md-12 col-12">
                                     <div class="form-group">
                                         <label for="chronology">Kronologi</label>
-                                        <textarea type="text" id="chronology" class="form-control" name="chronology" placeholder="Ceritakan kronologi anda"></textarea>
+                                        <textarea type="text" id="chronology" class="form-control" name="chronology" placeholder="Ceritakan kronologi anda">{{old('chronology')}}</textarea>
                                         @if ($errors->has('chronology'))
                                             <span class="text-danger">{{$errors->first('chronology')}}</span>
                                         @endif

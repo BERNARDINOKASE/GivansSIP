@@ -29,14 +29,16 @@ class ReportController extends Controller
         $request->validate([
             'offense_id' => ['required', 'exists:offenses,id'],
             'date_of_incident' => ['required', 'date'],
-            'location_of_incident' => ['required', 'string'],
-            'chronology' => ['required', 'string'],
+            'location_of_incident' => ['required', 'string', 'min:3'],
+            'chronology' => ['required', 'string', 'min:20'],
             'evidence' => ['required'],
         ], [
             'offense_id.required' => 'Kategori pengajuan belum diisi',
             'date_of_incident.required' => 'Tanggal kejadian belum diisi',
             'location_of_incident.required' => 'Lokasi kejadian belum diisi',
+            'location_of_incident.min' => 'lokasi kejadian minimal diisi dengan 3 karakter',
             'chronology.required' => 'Kronologi belum diisi',
+            'chronology.min' => 'Kronologi minimal diisi dengan 20 karakter',
             'evidence.required' => 'Bukti belum diisi',
             'date_of_incident.date' => 'Bukan bertipe tanggal',
             'offense_id.exists' => 'Kategori tidak terdaftar di dalam sistem',
@@ -52,7 +54,7 @@ class ReportController extends Controller
         ];
 
         $data = Report::create($requestReports);
-        return to_route('report.index');
+        return to_route('report.index')->with('success', 'Pengaduan berhasil ditambahkan, silahkan menunggu untuk diproses.');
     }
     public function edit(string $id)
     {

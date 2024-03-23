@@ -14,6 +14,12 @@
                     Navbar will appear on the top of the page.
                 </p>
             </div>
+            @if (session ('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session ('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
