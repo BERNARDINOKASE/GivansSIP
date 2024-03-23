@@ -123,6 +123,10 @@ Route::controller(HeadMasterController::class)
         Route::get('/reports/{id}', 'reportEdit')->name('headMaster.reportEdit');
         Route::patch('/reports/{id}', 'reportUpdate')->name('headMaster.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('headMaster.reportShow');
+        Route::get('/Wali-Kelas','getAllHeadroomTeacher')->name('headMaster.getAllHeadroomTeacher');
+        Route::get('/siswa','getAllStudents')->name('headMaster.getAllStudents');
+
+
     });
 
 Route::get('/dashboard', function () {
