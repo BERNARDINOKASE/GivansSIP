@@ -46,9 +46,12 @@ class HeadMasterController extends Controller
     {
         $request->validate([
             'solutions' => ['nullable'],
-            'head_master_notes' => ['nullable'],
+            'head_master_notes' => ['required', 'min:10'],
             'status' => ['required'],
             // 'head_master_teacher_id' => ['nullable'],
+        ], [
+            'head_master_notes.required' => 'Catatan kepala sekolah wajib diisi',
+            'head_master_notes.min' => 'Catatan kepala sekolah wajib diisi minimal 10 karakter'
         ]);
 
         $requestReports = [
@@ -61,7 +64,7 @@ class HeadMasterController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('headMaster.report');
+        return to_route('headMaster.report')->with('success', 'Pengaduan berhasil di proses.');
     }
 
     public function reportShow($reportId)

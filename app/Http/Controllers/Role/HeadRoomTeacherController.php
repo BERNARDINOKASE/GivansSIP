@@ -61,9 +61,12 @@ class headRoomTeacherController extends Controller
     {
         $request->validate([
             'solutions' => ['nullable'],
-            'head_room_teacher_notes' => ['nullable'],
+            'head_room_teacher_notes' => ['required', 'min:10'],
             'status' => ['required'],
             'guide_teacher_id' => ['nullable'],
+        ], [
+            'head_room_teacher_notes.required' => 'Catatan wali kelas wajib diisi',
+            'head_room_teacher_notes.min' => 'Catatan wali kelas wajib diisi minimal 10 karakter'
         ]);
 
         $requestReports = [
@@ -75,7 +78,7 @@ class headRoomTeacherController extends Controller
         ];
 
         Report::where('id', $id)->update($requestReports);
-        return to_route('hrTeacher.reports');
+        return to_route('hrTeacher.reports')->with('success', 'Pengaduan berhasil di proses.');
     }
 
     public function reportShow($reportId)

@@ -38,9 +38,12 @@ class GuideTeacherController extends Controller
     {
         $request->validate([
             'solutions' => ['nullable'],
-            'guide_teacher_notes' => ['nullable'],
+            'guide_teacher_notes' => ['required', 'min:10'],
             'status' => ['required'],
             'affairs_teacher_id' => ['nullable'],
+        ], [
+            'guide_teacher_notes.required' => 'Catatan guru bimbingan konseling wajib diisi',
+            'guide_teacher_notes.min' => 'Catatan guru bimbingan konseling wajib diisi minimal 10 karakter'
         ]);
 
         $requestReports = [
@@ -54,7 +57,7 @@ class GuideTeacherController extends Controller
 
         $data = Report::where('id', $id)->update($requestReports);
         // dd($data);
-        return to_route('guideTeacher.report');
+        return to_route('guideTeacher.report')->with('success', 'Pengaduan berhasil di proses.');
     }
 
     public function reportShow($reportId)

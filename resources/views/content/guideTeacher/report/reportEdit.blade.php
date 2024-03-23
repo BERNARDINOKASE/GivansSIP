@@ -84,6 +84,9 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <textarea type="text" class="form-control" name="guide_teacher_notes">{{$report->guide_teacher_notes}}</textarea>
+                                        @if ($errors->has('guide_teacher_notes'))
+                                            <span class="text-danger">{{$errors->first('guide_teacher_notes')}}</span>
+                                        @endif
                                     </div>
                                     <div class="col-md-4">
                                         <label for="solutions">Solusi</label>

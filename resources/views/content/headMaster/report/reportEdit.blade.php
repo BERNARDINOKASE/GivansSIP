@@ -96,6 +96,9 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <textarea type="text" class="form-control" name="head_master_notes">{{$report->head_master_notes}}</textarea>
+                                        @if ($errors->has('head_master_notes'))
+                                            <span class="text-danger">{{$errors->first('head_master_notes')}}</span>
+                                        @endif
                                     </div>
                                     <div class="col-md-4">
                                         <label for="solutions">Solusi</label>
