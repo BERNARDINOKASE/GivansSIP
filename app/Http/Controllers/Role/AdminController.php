@@ -23,30 +23,35 @@ class AdminController extends Controller
     public function student()
     {
         $student = User::where('role', 'siswa')->get();
-        dd($student);
+        // dd($student);
+        return view('content.admin.users.student', compact('student'));
     }
 
     public function headRoomTeacher()
     {
         $headRoomTeacher = User::where('role', 'walikelas')->get();
-        dd($headRoomTeacher);
+        // dd($headRoomTeacher);
+        return view('content.admin.users.headRoomTeaher', compact('headRoomTeacher'));
     }
 
     public function guideTeacher()
     {
         $guideTeacher = User::where('role', 'guruBk')->get();
-        dd($guideTeacher);
+        // dd($guideTeacher);
+        return view('content.admin.users.guideTeacher', compact('guideTeacher'));
     }
 
     public function affairsTeacher()
     {
         $affairsTeacher = User::where('role', 'kesiswaan')->get();
-        dd($affairsTeacher);
+        // dd($affairsTeacher);
+        return view('content.admin.users.affairsTeacher', compact('affairsTeacher'));
     }
 
     public function headMaster()
     {
         $headMaster = User::where('role', 'kepalaSekolah')->get();
-        dd($headMaster);
+        // dd($headMaster);
+        return view('content.admin.users.headMaster', compact('headMaster'));
     }
 }
