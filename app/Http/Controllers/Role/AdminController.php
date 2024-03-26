@@ -19,4 +19,34 @@ class AdminController extends Controller
         $reports = Report::count();
         return view('content.admin.index', compact('reports', 'students', 'hrTeacher', 'gTeacher', 'classRooms'));
     }
+
+    public function student()
+    {
+        $student = User::where('role', 'siswa')->get();
+        dd($student);
+    }
+
+    public function headRoomTeacher()
+    {
+        $headRoomTeacher = User::where('role', 'walikelas')->get();
+        dd($headRoomTeacher);
+    }
+
+    public function guideTeacher()
+    {
+        $guideTeacher = User::where('role', 'guruBk')->get();
+        dd($guideTeacher);
+    }
+
+    public function affairsTeacher()
+    {
+        $affairsTeacher = User::where('role', 'kesiswaan')->get();
+        dd($affairsTeacher);
+    }
+
+    public function headMaster()
+    {
+        $headMaster = User::where('role', 'kepalaSekolah')->get();
+        dd($headMaster);
+    }
 }

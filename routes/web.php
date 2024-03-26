@@ -123,10 +123,8 @@ Route::controller(HeadMasterController::class)
         Route::get('/reports/{id}', 'reportEdit')->name('headMaster.reportEdit');
         Route::patch('/reports/{id}', 'reportUpdate')->name('headMaster.reportUpdate');
         Route::get('/reports={reportId}', 'reportShow')->name('headMaster.reportShow');
-        Route::get('/Wali-Kelas','getAllHeadroomTeacher')->name('headMaster.getAllHeadroomTeacher');
-        Route::get('/siswa','getAllStudents')->name('headMaster.getAllStudents');
-
-
+        Route::get('/Wali-Kelas', 'getAllHeadroomTeacher')->name('headMaster.getAllHeadroomTeacher');
+        Route::get('/siswa', 'getAllStudents')->name('headMaster.getAllStudents');
     });
 
 Route::get('/dashboard', function () {
@@ -174,6 +172,18 @@ Route::controller(OffenseController::class)
         Route::get('/offense', 'index')->name('offense.index');
         Route::post('/offense', 'store')->name('offense.store');
         Route::delete('/{id}', 'destroy')->name('offense.delete');
+    });
+
+//Admin Routes
+Route::controller(AdminController::class)
+    ->middleware(['auth', 'role:admin'])
+    ->prefix('/dashboard/admin')
+    ->group(function () {
+        Route::get('/students', 'student')->name('admin.allStudent');
+        Route::get('/head-room-teacher', 'headRoomTeacher')->name('admin.allHeadRoomTeacher');
+        Route::get('/guide-teacher', 'guideTeacher')->name('admin.allGuideTeacher');
+        Route::get('/affairs-teacher', 'affairsTeacher')->name('admin.allAffairsTeacher');
+        Route::get('/head-master', 'headMaster')->name('admin.allHeadMaster');
     });
 
 require __DIR__ . '/auth.php';
