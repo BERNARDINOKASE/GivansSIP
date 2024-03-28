@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ProfileController;
@@ -43,15 +44,6 @@ Route::get('/logout', [AuthenticateController::class, 'destroy'])->name('user.lo
 Route::get('/kritik-dan-saran',  [CriticAndSuggestController::class, 'index'])->name('criticAndSuggest.index');
 Route::post('/kritik-dan-saran', [CriticAndSuggestController::class, 'store'])->name('criticAndSuggest.store');
 
-
-// Admin routes
-
-Route::controller(AdminController::class)
-    ->middleware(['auth', 'role:admin'])
-    ->prefix('/dashboard/admin')
-    ->group(function () {
-        Route::get('/', 'index')->name('admin.index');
-    });
 
 // Student routes
 Route::controller(StudentController::class)
@@ -179,11 +171,19 @@ Route::controller(AdminController::class)
     ->middleware(['auth', 'role:admin'])
     ->prefix('/dashboard/admin')
     ->group(function () {
+        Route::get('/', 'index')->name('admin.index');
         Route::get('/students', 'student')->name('admin.allStudent');
         Route::get('/head-room-teacher', 'headRoomTeacher')->name('admin.allHeadRoomTeacher');
         Route::get('/guide-teacher', 'guideTeacher')->name('admin.allGuideTeacher');
         Route::get('/affairs-teacher', 'affairsTeacher')->name('admin.allAffairsTeacher');
         Route::get('/head-master', 'headMaster')->name('admin.allHeadMaster');
+        Route::get('/register-user', 'addNewUser')->name('admin.addNewUser');
+        // Route::post('/register-user', 'storeNewUser')->name('admin.storeNewUser');
+        // Route::post('/aaaa', 'storeNewUser')->name('admin.storeNewUser');
     });
+
+Route::post('/register-user', [AdminController::class, 'storeNewUser'])->middleware('role:admin')->name('admin.storeNewUser');
+
+
 
 require __DIR__ . '/auth.php';
