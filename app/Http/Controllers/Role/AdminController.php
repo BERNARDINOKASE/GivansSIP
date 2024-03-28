@@ -7,6 +7,7 @@ use App\Models\ClassRoom;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -53,5 +54,52 @@ class AdminController extends Controller
         $headMaster = User::where('role', 'kepalaSekolah')->get();
         // dd($headMaster);
         return view('content.admin.users.headMaster', compact('headMaster'));
+    }
+
+    public function addNewUser()
+    {
+        return view('content.admin.users.userRegister');
+    }
+
+    public function storeNewUser(Request $request)
+    {
+        $request->validate([
+            'second_id' => ['unique:users,second_id', 'required', 'string', 'max:18', 'min:9'],
+            'full_name' => ['required', 'string', 'max:255'],
+            'gender' => ['required'],
+            'phone_number' => ['max:13', 'min:10', 'string', 'nullable'],
+            'role' => ['required'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed']
+        ], [
+            'second_id.required' => 'NIS/NIP wajib diisi',
+            'second_id.unique' => 'NIS/NIP anda sudah terdaftar',
+            'second_id.max' => 'NIS/NIP anda melebihi 18 karakter',
+            'second_id.min' => 'NIS/NIP anda kurang dari 9 karakter',
+            'full_name.required' => 'Nama anda wajib diisi',
+            'gender.required' => 'Jenis kelamin wajib diisi',
+            'phone_number.max' => 'No hp anda sudah lebih dari 13 angka',
+            'phone_number.min' => 'No hp anda kurang dari 10 angka',
+            'role.required' => 'Peran wajib diisi',
+            'email.required' => 'Email wajib diisi',
+            'email.lowercase' => 'Email hanya menggunakan huruf kecil',
+            'email.unique' => 'Email anda sudah terdaftar',
+            'password.required' => 'Password wajib diisi'
+        ]);
+
+        $user = User::create([
+            'second_id' => $request->second_id,
+            'full_name' => $request->full_name,
+            'gender' => $request->gender,
+            'phone_number' => $request->phone_number,
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        
+        event(new Registered($user));
+
+        // Auth::login($user);
+        return back()->with('success', 'Berhasil menambahkan pengguna baru');
     }
 }
