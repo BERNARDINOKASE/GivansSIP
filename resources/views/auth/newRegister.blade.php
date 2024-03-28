@@ -53,8 +53,7 @@
                                 <label for="role">Peran</label>
                                 <select class="form-select form-select" name="role">
                                     <option selected value="">--Peran--</option>
-                                    <option value="student">Siswa</option>
-                                    <option value="guest">Tamu</option>
+                                    <option value="siswa">Siswa</option>
                                 </select>
                                 @if ($errors->has('role'))
                                     <span class="text-danger">{{$errors->first('role')}}</span>

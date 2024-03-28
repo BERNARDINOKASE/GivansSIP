@@ -30,6 +30,6 @@ class CriticAndSuggestController extends Controller
         ];
 
         CriticAndSuggest::create($requestCriticAndSuggest);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Terima kasih telah melapor. Laporan berhasil disimpan dan akan diproses.');
     }
 }

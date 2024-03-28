@@ -13,7 +13,13 @@
                             </h4>
                         </div>
                     </div>
-                    <form method="POST" action="{{route('user.register')}}">
+                    @if (session ('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session ('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    <form method="POST" action="{{route('criticAndSuggest.store')}}">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12 mb-2">
