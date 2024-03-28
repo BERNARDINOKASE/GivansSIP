@@ -88,7 +88,7 @@ class AdminController extends Controller
             'password.required' => 'Password wajib diisi'
         ]);
 
-        $user = User::create([
+        User::create([
             'second_id' => $request->second_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
