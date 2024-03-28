@@ -8,7 +8,9 @@ use App\Models\Report;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Ramsey\Uuid\Uuid;
 
 class AdminController extends Controller
 {
@@ -89,6 +91,7 @@ class AdminController extends Controller
         ]);
 
         User::create([
+            'id' => '982374uiherkjsddhfkj*&&*&^324lkjsdf',
             'second_id' => $request->second_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
@@ -99,8 +102,9 @@ class AdminController extends Controller
         ]);
 
         // event(new Registered($user));
+        // dd($user);
 
         // Auth::login($user);
-        return back()->with('success', 'Berhasil menambahkan pengguna baru');
+        return back()->with('success', 'Berhasil menambahkan pengguna baru')->with('error', 'Gagal menambahkan pengguna baru');
     }
 }
