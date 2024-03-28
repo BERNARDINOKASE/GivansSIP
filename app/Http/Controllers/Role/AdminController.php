@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
 use App\Models\Report;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -96,8 +97,8 @@ class AdminController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
-        event(new Registered($user));
+
+        // event(new Registered($user));
 
         // Auth::login($user);
         return back()->with('success', 'Berhasil menambahkan pengguna baru');
