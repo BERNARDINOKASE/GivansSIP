@@ -22,12 +22,6 @@
                     </ol>
                 </nav>
             </div>
-            @if (session ('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session ('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
         </div>
     </div>
     <div class="row">
@@ -37,9 +31,21 @@
                     <h4 class="card-title">Formulir Pendaftaran Akun Baru</h4>
                 </div>
                 <div class="card-content">
+                    @if (session ('success'))
+                        <div class="m-2 alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session ('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session ('error'))
+                        <div class="m-2 alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session ('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="row">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{route('admin.storeNewUser')}}">
                                 @csrf
                                 <div class="col-12">
                                     <div class="form-group">
@@ -86,8 +92,12 @@
                                         <label for="role">Peran</label>
                                         <select class="form-select form-select" name="role">
                                             <option selected value="">--Peran--</option>
-                                            <option value="student">Siswa</option>
-                                            <option value="guest">Tamu</option>
+                                            <option value="siswa">Siswa</option>
+                                            <option value="waliKelas">Wali Kelas</option>
+                                            <option value="guruBk">Guru Bk</option>
+                                            <option value="kesiswaan">Kesiswaan</option>
+                                            <option value="kepalaSekolah">Kepala Sekolah</option>
+                                            <option value="admin">Admin</option>
                                         </select>
                                         @if ($errors->has('role'))
                                             <span class="text-danger">{{$errors->first('role')}}</span>
@@ -106,7 +116,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="text" id="password" class="form-control" placeholder="password anda" name="password">
+                                        <input type="password" class="form-control" placeholder="password anda" name="password">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">
