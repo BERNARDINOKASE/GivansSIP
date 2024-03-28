@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,5 +26,19 @@ class PasswordController extends Controller
         ]);
 
         return back()->with('status', 'password-updated');
+    }
+
+    public function adminUpdatePassword(Request $request, $id)
+    {
+        // $request->validate([
+        //     'password' => ['required'],
+        // ]);
+
+        $data = [
+            'password' => Hash::make('qwerty12345')
+        ];
+
+        User::where('id', $id)->update($data);
+        // return 
     }
 }
